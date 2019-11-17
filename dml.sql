@@ -636,3 +636,19 @@ insert into marca (idmarca,nome,origem) values (7,'Honda','Japão');
 insert into marca (idmarca,nome,origem) values (8,'Fiat-Chrysler','Itália');
 insert into marca (idmarca,nome,origem) values (9,'Peugeot-Citröen',' França');
 insert into marca (idmarca,nome,origem) values (10,'Suzuki-Maruti','Índia');
+
+
+---- -----TABELA TIPO ----------
+
+insert into tipo (idtipo,descricao) values (1,'automóvel');
+insert into tipo (idtipo,descricao) values (2,'motocicleta');
+insert into tipo (idtipo,descricao) values (3,'automóvel');
+insert into tipo (idtipo,descricao) values (4,'caminhão');
+insert into tipo (idtipo,descricao) values (5,'charrete');
+insert into tipo (idtipo,descricao) values (6,'motocicleta');
+insert into tipo (idtipo,descricao) values (7,'caminhonete');
+insert into tipo (idtipo,descricao) values (8,'automóvel');
+insert into tipo (idtipo,descricao) values (9,'caminhonete');
+insert into tipo (idtipo,descricao) values (10,'caminhão');
+
+
