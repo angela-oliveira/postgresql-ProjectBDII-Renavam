@@ -2,7 +2,6 @@ CREATE TABLE categoria_cnh(
 idCategoriaCNH VARCHAR(3) NOT NULL,
 descricao text NOT NULL,
 CONSTRAINT PK_categoria PRIMARY KEY (idCategoriaCNH)
-
 );
 
 CREATE TABLE estado (
@@ -37,20 +36,22 @@ CONSTRAINT FK_cidade FOREIGN KEY (idCidade) REFERENCES cidade (idCidade),
 CONSTRAINT CHK_situacaoCNH CHECK (situacaoCNH = 'R' or situacaoCNH = 'S' )
 );
 
-CREATE TABLE categoria_veiculos (
-idCategoria SERIAL NOT NULL,
-nome varchar(50) NOT NULL,
-idEspecie integer not null,
-CONSTRAINT PK_categoria_veiculos PRIMARY KEY (idCategoria),
-CONSTRAINT FK_especie FOREIGN KEY (idEspecie) REFERENCES especie (idEspecie),
-
-);
 
 CREATE TABLE especie (
 idEspecie smallint,
 descricao varchar(30) NOT NULL,
 CONSTRAINT PK_especie PRIMARY KEY (idEspecie)
 );
+
+CREATE TABLE categoria_veiculos (
+idCategoria SERIAL NOT NULL,
+nome varchar(50) NOT NULL,
+idEspecie SMALLINT not null,
+CONSTRAINT PK_categoria_veiculos PRIMARY KEY (idCategoria),
+CONSTRAINT FK_especie FOREIGN KEY (idEspecie) REFERENCES especie (idEspecie)
+
+);
+
 
 CREATE TABLE tipo (
 idTipo integer NOT NULL,
