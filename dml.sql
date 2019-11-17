@@ -663,6 +663,18 @@ insert into modelo (idModelo,denominacao,idMarca,idTipo) values (4,'Chevrolet Cl
 insert into modelo (idModelo,denominacao,idMarca,idTipo) values (5,'O HB20S é um modelo sedan compacto de quatro portas fabricado pela Hyundai derivado do HB20',5,5);
 
 
+---- -----TABELA ESPECIE----------
+
+insert into especie(idEspecie,descricao) values (1,'De passageiros');
+insert into especie(idEspecie,descricao) values (2,'Misto');
+insert into especie(idEspecie,descricao) values (3,'De Tração');
+insert into especie(idEspecie,descricao) values (4,'De passageiros');
+insert into especie(idEspecie,descricao) values (5,'De coleção');
+insert into especie(idEspecie,descricao) values (6,'De passageiros');
+insert into especie(idEspecie,descricao) values (7,' Misto');
+insert into especie(idEspecie,descricao) values (8,'De passageiros');
+insert into especie(idEspecie,descricao) values (9,' Misto');
+insert into especie(idEspecie,descricao) values (10,'De Tração');
 
 ---- -----TABELA CATEGORIA_VEICULO----------
 
