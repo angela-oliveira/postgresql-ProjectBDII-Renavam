@@ -507,7 +507,7 @@ INSERT INTO cidade (idcidade,id_uf,nome) VALUES (417,'TO','Rio Formoso');
 INSERT INTO cidade (idcidade,id_uf,nome) VALUES (418,'TO','Ipueiras');
 INSERT INTO cidade (idcidade,id_uf,nome) VALUES (419,'TO','tacajá');
 
------PROPRIETÁRIO
+-----------------------------------------------PROPRIETÁRIO-----------------------------------------------------------------------
 
 INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
 VALUES (default,79835295468,'ADALBERTO PEREIRA CHAVES','1971-01-25', 'A','AC','Santa Rosa do Purus','Aeroporto Velho-12','R',64); -- proprietario -id
@@ -560,10 +560,6 @@ VALUES (default,16386000334 ,'DANILO PANTOJA LEITE','03-11-1992', 'AB','AP','Mac
 INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
 VALUES (default,16386000334 ,'DANILO PANTOJA ','03-11-1992', 'AB','AP','Macapá','R.Macapá Alegre Cutias' ,'R',86); -- proprietario id
 
-
-
------------------------------------------------------------------------------------
------------------------------------------------------------------------------------
 INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
 VALUES (default,79835295469,'JONAS PEREIRA CHAVES','1971-01-26', 'A','AM','Alvaraes','Aeroporto Velho-12','R',95); -- proprietario -id
 
@@ -623,6 +619,29 @@ VALUES (default,16386111334 ,'DANILO HELENO PANTOJA LEITE','03-10-1992', 'AB','P
 INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
 VALUES (default,16386000334 ,'DANILO ROMEU PANTOJA LEITE','04-11-1993', 'AB','PI','Batalha','R.Macapá Alegre Cutias' ,'R',281); -- proprietario id
 
+
+--------------------------------------------- Mais Propritários da Paraíba--------------------------------------------------------------------------------
+
+INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (default,79835295478,'ADALBERTO PEREIRA CHAVES','1972-01-25', 'A','PB','Agua Branca','Aeroporto Velho-12','R',1); -- proprietario -id
+
+INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (default,07789675894,'ADRIANO GOMES NASCIMENTO','1972-01-26', 'AB','PB','Aguiar','Abraão Alab-12','R',2); -- proprietario -id
+
+INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (default,05998495421,'ALBERTO PAULINO DA SILVA','1973-02-28', 'B','PB','Conceicao','Águia de Haia-03','R',24); -- proprietario -id
+
+INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (default,07967800432,'ALEXANDRE GONCALO DE SOUSA' ,'1978-03-29', 'ACC','PB','João Pessoa','Tambaú','S',45); -- proprietario id
+
+INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (default,64610764921,'ADRIANO FERNANDES CARDOSO','02-02-1968', 'C','PB','Conde','R.Pedro americo','R',25); -- proprietario id
+
+INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (default,18849539215,'ANA LUCIA DE SOUZA','31-12-1960', 'D','PB','Campina Grande','R.Pedro condeferação','R',22); -- proprietario id
+
+INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (default,59769661247 ,'BENILDO FERNANDES DE AZEVEDO JUNIOR','19-10-1978', 'E','PB','Guarabira','R.Crelandia 2','S',37); -- proprietario id
 
 ---- -----TABELA MARCA ----------
 
