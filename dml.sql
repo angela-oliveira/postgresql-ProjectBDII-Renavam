@@ -651,4 +651,33 @@ insert into tipo (idtipo,descricao) values (8,'automóvel');
 insert into tipo (idtipo,descricao) values (9,'caminhonete');
 insert into tipo (idtipo,descricao) values (10,'caminhão');
 
+---- -----TABELA MODELO ----------
+
+insert into modelo (idModelo,denominacao,idMarca,idTipo) values (1,'O Volkswagen Gol foi lançado na década de 80 e é considerado um dos maiores sucessos da montadora alemã ',DEFAULT,DEFAULT);
+
+insert into modelo (idModelo,denominacao,idMarca,idTipo) values (2,'Toyota Corolla é um modelo compacto da Toyota oferecido em versões sedan, hatchback e perua',DEFAULT,DEFAULT);
+
+insert into modelo (idModelo,denominacao,idMarca,idTipo) values (3,'Sandero é o modelo da Renault mais vendido no mercado brasileiro de automóveis.',DEFAULT,DEFAULT);
+
+insert into modelo (idModelo,denominacao,idMarca,idTipo) values (4,'Chevrolet Classic, foi um modelo compacto sedan de quatro portas fabricado pela Chevrolet',DEFAULT,DEFAULT);
+
+insert into modelo (idModelo,denominacao,idMarca,idTipo) values (5,'O HB20S é um modelo sedan compacto de quatro portas fabricado pela Hyundai derivado do HB20',DEFAULT,DEFAULT);
+
+
+---- -----TABELA CATEGORIA_VEICULO----------
+
+insert into categoria_veiculos(idCategoria,nome,idEspecie) values (DEFAULT,Oficial,1);
+insert into categoria_veiculos(idCategoria,nome,idEspecie) values (DEFAULT,Particular,2);
+insert into categoria_veiculos(idCategoria,nome,idEspecie) values (DEFAULT,Oficial,3);
+insert into categoria_veiculos(idCategoria,nome,idEspecie) values (DEFAULT,Particular,4);
+insert into categoria_veiculos(idCategoria,nome,idEspecie) values (DEFAULT,Aprendizagem,5);
+insert into categoria_veiculos(idCategoria,nome,idEspecie) values (DEFAULT,Aluguel,6);
+insert into categoria_veiculos(idCategoria,nome,idEspecie) values (DEFAULT,Aprendizagem,7);
+insert into categoria_veiculos(idCategoria,nome,idEspecie) values (DEFAULT,Aluguel,8);
+insert into categoria_veiculos(idCategoria,nome,idEspecie) values (DEFAULT,Aluguel,9);
+insert into categoria_veiculos(idCategoria,nome,idEspecie) values (DEFAULT,Particular,10);
+
+
+
+
 
