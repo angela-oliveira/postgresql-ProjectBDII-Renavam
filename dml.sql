@@ -624,3 +624,15 @@ INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco
 VALUES (default,16386000334 ,'DANILO ROMEU PANTOJA LEITE','04-11-1993', 'AB','PI','Batalha','R.Macapá Alegre Cutias' ,'R',281); -- proprietario id
 
 
+---- -----TABELA MARCA ----------
+
+insert into marca (idmarca,nome,origem) values (1,'Volkswagen','Alemanha');
+insert into marca (idmarca,nome,origem) values (2,'Toyota','Japão');
+insert into marca (idmarca,nome,origem) values (3,'Renault- Nissan','Rússia');
+insert into marca (idmarca,nome,origem) values (4,'General Motors','Estados Unidos');
+insert into marca (idmarca,nome,origem) values (5,'Hyundai-Kia','Coreia do Su');
+insert into marca (idmarca,nome,origem) values (6,'Ford','Estados Unidos');
+insert into marca (idmarca,nome,origem) values (7,'Honda','Japão');
+insert into marca (idmarca,nome,origem) values (8,'Fiat-Chrysler','Itália');
+insert into marca (idmarca,nome,origem) values (9,'Peugeot-Citröen',' França');
+insert into marca (idmarca,nome,origem) values (10,'Suzuki-Maruti','Índia');
