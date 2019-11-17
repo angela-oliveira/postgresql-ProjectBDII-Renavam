@@ -40,7 +40,9 @@ CONSTRAINT CHK_situacaoCNH CHECK (situacaoCNH = 'R' or situacaoCNH = 'S' )
 CREATE TABLE categoria_veiculos (
 idCategoria SERIAL NOT NULL,
 nome varchar(50) NOT NULL,
-CONSTRAINT PK_categoria_veiculos PRIMARY KEY (idCategoria)
+idEspecie integer not null,
+CONSTRAINT PK_categoria_veiculos PRIMARY KEY (idCategoria),
+CONSTRAINT FK_especie FOREIGN KEY (idEspecie) REFERENCES especie (idEspecie),
 
 );
 
