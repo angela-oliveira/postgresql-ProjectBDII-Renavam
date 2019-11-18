@@ -537,28 +537,28 @@ INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco
 VALUES (default,76425711272 ,'CARLA ELUANE DE ALMEIDA LEAL','15-11-1984', 'D','AC','Manaoel urbano','R.Placido jordao 1','R',57); -- proprietario id
 
 INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,76131947287,'CARLOS ALTEIR SANTOS FERREIRA','27/02/1982', 'D','AC','Placido de Castro','R.Placido Antonio 3','S',59); -- proprietario id
+VALUES (default,76131147287,'CARLOS ALTEIR SANTOS FERREIRA','27/02/1982', 'D','AC','Placido de Castro','R.Placido Antonio 3','S',59); -- proprietario id
 
 INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
 VALUES (default,76131947287,'CARLOS HENRIQUE GOMES SANTIAGO','10-11-1970', 'E','AC','Xarupi','R.Placido xarupi 3','R',68); -- proprietario id
 
 INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,76131947207,'CARLOS HENRIQUE SANTIAGO','10-12-1970', 'E','AL','Belo Monte','R.Placido Belo ','S',74); -- proprietario id
+VALUES (default,76131947267,'CARLOS HENRIQUE SANTIAGO','10-12-1970', 'E','AL','Belo Monte','R.Placido Belo ','S',74); -- proprietario id
 
 INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,81949332268,'CAROLINA COSTA ROSA','27-10-1983', 'E','AL','Coite do Noia','R.Campo Alegre','S',79); -- proprietario id
+VALUES (default,81949332968,'CAROLINA COSTA ROSA','27-10-1983', 'E','AL','Coite do Noia','R.Campo Alegre','S',79); -- proprietario id
 
 INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
 VALUES (default,16386110234 ,'CHRISTIAN KAMPMANN','30-12-1979', 'AB','AP','Cutias','R.Campo Alegre Cutias' ,'R',82); -- proprietario id
 
 INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,16386100234 ,'CLAUDINA BARRIGA NOBRE','21-12-1961', 'AB','AP','Serra do Navio','R.Campo Alegre Cutias' ,'S',91); -- proprietario id
+VALUES (default,16386120234 ,'CLAUDINA BARRIGA NOBRE','21-12-1961', 'AB','AP','Serra do Navio','R.Campo Alegre Cutias' ,'S',91); -- proprietario id
 
 INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
 VALUES (default,16386000334 ,'DANILO PANTOJA LEITE','03-11-1992', 'AB','AP','Macapá','R.Macapá Alegre Cutias' ,'R',86); -- proprietario id
 
 INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,16386000334 ,'DANILO PANTOJA ','03-11-1992', 'AB','AP','Macapá','R.Macapá Alegre Cutias' ,'R',86); -- proprietario id
+VALUES (default,16386210334 ,'DANILO PANTOJA ','03-11-1992', 'AB','AP','Macapá','R.Macapá Alegre Cutias' ,'R',86); -- proprietario id
 
 INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
 VALUES (default,79835295469,'JONAS PEREIRA CHAVES','1971-01-26', 'A','AM','Alvaraes','Aeroporto Velho-12','R',95); -- proprietario -id
@@ -574,7 +574,7 @@ VALUES (default,37967889432,'GONCALO DE SOUSA','1978-03-29','ACC','BA','Gentil d
 
 
 INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,64610764921,'ADRIANO FERNANDES CARDOSO','01-02-1969', 'C','CE','Boa Viagem','R.Pedro americo','R',126); -- proprietario id
+VALUES (default,64610764920,'ADRIANO FERNANDES CARDOSO','01-02-1969', 'C','CE','Boa Viagem','R.Pedro americo','R',126); -- proprietario id
 
 INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
 VALUES (default,18849739215,'ANA LUCIA DE SOUZA','31-12-1960', 'C','CE','Choro','R.Pedro condeferação','S',129); -- proprietario id
@@ -596,10 +596,10 @@ VALUES (default,76131947288,'ALTEIR SANTOS FERREIRA','27/02/1982', 'E','MA','Afo
 
 
 INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,76131947287,'HENRIQUE GOMES SANTIAGO','10-11-1970', 'E','MT','Bacuri','R.Placido xarupi 3','R',198); -- proprietario id
+VALUES (default,76131947237,'HENRIQUE GOMES SANTIAGO','10-11-1970', 'E','MT','Bacuri','R.Placido xarupi 3','R',198); -- proprietario id
 
 INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,76131947207,'CARLOS HENRIQUE SANTIAGO','10-12-1970', 'ACC','MS','Bonito','R.Placido Belo ','S',210); -- proprietario id
+VALUES (default,76131947297,'CARLOS HENRIQUE SANTIAGO','10-12-1970', 'ACC','MS','Bonito','R.Placido Belo ','S',210); -- proprietario id
 
 
 INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
@@ -617,7 +617,7 @@ INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco
 VALUES (default,16386111334 ,'DANILO HELENO PANTOJA LEITE','03-10-1992', 'AB','PE','Recife','R.Macapá Alegre Cutias' ,'R',265); -- proprietario id
 
 INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,16386000334 ,'DANILO ROMEU PANTOJA LEITE','04-11-1993', 'AB','PI','Batalha','R.Macapá Alegre Cutias' ,'R',281); -- proprietario id
+VALUES (default,16386320334 ,'DANILO ROMEU PANTOJA LEITE','04-11-1993', 'AB','PI','Batalha','R.Macapá Alegre Cutias' ,'R',281); -- proprietario id
 
 
 --------------------------------------------- Mais Propritários da Paraíba--------------------------------------------------------------------------------
