@@ -1,7 +1,7 @@
---- Fuunção calculo renavam
+--- Função para o calculo renavam
 
 CREATE OR REPLACE FUNCTION calculo_renavam()
-RETURNS integer
+RETURNS char(13)
 AS $$
 DECLARE
 
@@ -17,20 +17,15 @@ BEGIN
 	FOR j in 1..10 LOOP
 		num := trunc(random()*10);
 		ren := ren || num;
-		soma := soma + numero * fator[j];
-		ren := (soma * 10) % 11;
+		soma := soma + num * fatt[j];
+		ret := (soma * 10) % 11;
 		
 	END LOOP;
-	
 	ren := ren || ret;
 	RAISE NOTICE 'Retorno: %',ret;
 	RAISE NOTICE 'RENAVAM: %',ren;
-	
+	return ren;
 END; $$
 
-LANGUAGE plpgsql;
-	
-	
-	
-	
+LANGUAGE plpgsql;	
 	
