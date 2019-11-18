@@ -11,7 +11,7 @@ CONSTRAINT PK_estado PRIMARY KEY (id_Uf)
 );
 
 CREATE TABLE cidade (
-idCidade varchar(3) NOT NULL,
+idCidade serial NOT NULL,
 nome varchar(50) NOT NULL,
 id_Uf varchar(2) NOT NULL,
 CONSTRAINT PK_cidade PRIMARY KEY (idCidade),
@@ -28,9 +28,10 @@ id_Uf varchar(2) not null,
 endereco varchar(50) NOT NULL,
 bairro varchar (30) NOT NULL,
 situacaoCNH varchar(1) NOT NULL DEFAULT 'R',
-idCidade varchar(3) NOT NULL,
+idCidade int NOT NULL,
 
 CONSTRAINT PK_cadastro PRIMARY KEY (idCadastro),
+CONSTRAINT AK_cpf UNIQUE (cpf),
 CONSTRAINT FK_categoriaCNH FOREIGN KEY (idCategoriaCNH) REFERENCES categoria_cnh (idCategoriaCNH),
 CONSTRAINT FK_cidade FOREIGN KEY (idCidade) REFERENCES cidade (idCidade),
 CONSTRAINT CHK_situacaoCNH CHECK (situacaoCNH = 'R' or situacaoCNH = 'S' )
@@ -38,7 +39,7 @@ CONSTRAINT CHK_situacaoCNH CHECK (situacaoCNH = 'R' or situacaoCNH = 'S' )
 
 
 CREATE TABLE especie (
-idEspecie smallint,
+idEspecie serial not null,
 descricao varchar(30) NOT NULL,
 CONSTRAINT PK_especie PRIMARY KEY (idEspecie)
 );
@@ -54,20 +55,20 @@ CONSTRAINT FK_especie FOREIGN KEY (idEspecie) REFERENCES especie (idEspecie)
 
 
 CREATE TABLE tipo (
-idTipo integer NOT NULL,
+idTipo serial NOT NULL,
 descricao varchar(30) NOT NULL,
 CONSTRAINT PK_tipo PRIMARY KEY (idTipo)
 );
 
 CREATE TABLE marca (
-idMarca integer NOT NULL,
+idMarca serial NOT NULL,
 nome varchar (40) NOT NULL,
 origem varchar (40) NOT NULL,
 CONSTRAINT PK_marca PRIMARY KEY (idMarca)
 );
 
 CREATE TABLE modelo (
-idModelo integer NOT NULL,
+idModelo serial NOT NULL,
 denominacao varchar (100) NOT NULL,
 idMarca integer NOT NULL,
 idTipo integer NOT NULL,
@@ -77,7 +78,7 @@ CONSTRAINT FK_tipo_modelo FOREIGN KEY (idTipo) REFERENCES tipo(idTipo)
 );
 
 CREATE TABLE infracao(
-idInfracao integer NOT NULL,
+idInfracao serial NOT NULL,
 descricao varchar(40) NOT NULL,
 valor numeric NOT NULL,
 pontos integer NOT NULL,
@@ -93,7 +94,7 @@ ano integer NOT NULL,
 idCategoria integer NOT NULL,
 idProprietario integer NOT NULL,
 idModelo integer NOT NULL,
-idCidade varchar(3),
+idCidade int,
 dataCadastro date NOT NULL,
 dataAquisicao date NOT NULL,
 valor float NOT NULL,
@@ -120,7 +121,7 @@ CONSTRAINT CHK_licenciamento_pago CHECK (pago = 'S' or pago = 'N')
 );
 
 CREATE TABLE multa (
-idMulta integer NOT NULL,
+idMulta serial NOT NULL,
 renavam char(13) NOT NULL,
 idInfracao integer NOT NULL,
 idCondutor integer NOT NULL,
@@ -139,7 +140,7 @@ CONSTRAINT CHK_multa_pago CHECK (pago = 'S' or pago = 'N')
 );
 
 CREATE TABLE transferencia (
-idHistorico integer NOT NULL,
+idHistorico serial NOT NULL,
 renavam char(3) NOT NULL,
 idProprietario integer NOT NULL,
 dataCompra date NOT NULL,
