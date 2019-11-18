@@ -98,8 +98,7 @@ dataCadastro date NOT NULL,
 dataAquisicao date NOT NULL,
 valor float NOT NULL,
 situacao varchar(1) NOT NULL DEFAULT 'R' ,
-codExemplar SERIAL NOT NULL,
-isbn char(13) NOT NULL,
+
 
 CONSTRAINT PK_renavam PRIMARY KEY (renavam),
 CONSTRAINT AK_placa UNIQUE (placa),
