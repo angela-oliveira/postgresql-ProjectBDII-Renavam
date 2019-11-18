@@ -68,7 +68,7 @@ CONSTRAINT PK_marca PRIMARY KEY (idMarca)
 
 CREATE TABLE modelo (
 idModelo integer NOT NULL,
-denominacao varchar (40) NOT NULL,
+denominacao varchar (100) NOT NULL,
 idMarca integer NOT NULL,
 idTipo integer NOT NULL,
 CONSTRAINT PK_modelo PRIMARY KEY (idModelo),
