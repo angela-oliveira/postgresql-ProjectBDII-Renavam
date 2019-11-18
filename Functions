@@ -1,0 +1,36 @@
+--- Fuunção calculo renavam
+
+CREATE OR REPLACE FUNCTION calculo_renavam()
+RETURNS integer
+AS $$
+DECLARE
+
+	num INTEGER := 0;
+	soma INTEGER := 0;
+	ret INTEGER := 0;
+	j INTEGER := 0;
+	ren text := '';
+	fatt INTEGER [] := array [3,2,9,8,7,6,5,4,3,2];
+	
+BEGIN
+	
+	FOR j in 1..10 LOOP
+		num := trunc(random()*10);
+		ren := ren || num;
+		soma := soma + numero * fator[j];
+		ren := (soma * 10) % 11;
+		
+	END LOOP;
+	
+	ren := ren || ret;
+	RAISE NOTICE 'Retorno: %',ret;
+	RAISE NOTICE 'RENAVAM: %',ren;
+	
+END; $$
+
+LANGUAGE plpgsql;
+	
+	
+	
+	
+	
