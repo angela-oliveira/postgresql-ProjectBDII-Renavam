@@ -27,10 +27,12 @@ BEGIN
 	return ren;
 END; $$
 
-LANGUAGE plpgsql;	
+LANGUAGE plpgsql;
+
 	
 ------ Função que retorna uma trigger para fazer Transferência Propriedade --------
-
+		######### EM ANDAMENTO #########
+		
 CREATE OR REPLACE FUNCTION TransferenciaPropriedade()
 RETURNS TRIGGER AS $$
 BEGIN
