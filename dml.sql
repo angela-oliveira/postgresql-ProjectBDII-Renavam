@@ -508,140 +508,139 @@ INSERT INTO cidade (idcidade,id_uf,nome) VALUES (418,'TO','Ipueiras');
 INSERT INTO cidade (idcidade,id_uf,nome) VALUES (419,'TO','tacajá');
 
 -----------------------------------------------PROPRIETÁRIO-----------------------------------------------------------------------
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (79835295468,'ADALBERTO PEREIRA CHAVES','1971-01-25', 'A','AC','Santa Rosa do Purus','Aeroporto Velho-12','R',64); -- proprietario -id
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,79835295468,'ADALBERTO PEREIRA CHAVES','1971-01-25', 'A','AC','Santa Rosa do Purus','Aeroporto Velho-12','R',64); -- proprietario -id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (07789675494,'ADRIANO GOMES NASCIMENTO','1971-01-26', 'A','AC','Sena Madureira','Abraão Alab-12','R',65); -- proprietario -id
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,07789675494,'ADRIANO GOMES NASCIMENTO','1971-01-26', 'A','AC','Sena Madureira','Abraão Alab-12','R',65); -- proprietario -id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (05998495411,'ALBERTO PAULINO DA SILVA','1971-02-28', 'B','PB','Areia','Águia de Haia-03','R',8); -- proprietario -id
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,05998495411,'ALBERTO PAULINO DA SILVA','1971-02-28', 'B','PB','Areia','Águia de Haia-03','R',8); -- proprietario -id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (07967809432,'ALEXANDRE GONCALO DE SOUSA','1972-02-29', 'B','PB','João Pessoa','Tambaú','S',45); -- proprietario id
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,07967809432,'ALEXANDRE GONCALO DE SOUSA','1972-02-29', 'B','PB','João Pessoa','Tambaú','S',45); -- proprietario id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (64610764320,'ADRIANO FERNANDES CARDOSO','01-02-1968', 'C','PB','"Baia da Traicao"','R.Pedro americo','R',9); -- proprietario id
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,64610764320,'ADRIANO FERNANDES CARDOSO','01-02-1968', 'C','PB','"Baia da Traicao"','R.Pedro americo','R',9); -- proprietario id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (18849539215,'ANA LUCIA DE SOUZA','31-12-1960', 'C','PB','Cabaceiras','R.Pedro condeferação','R',18); -- proprietario id
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,18849539215,'ANA LUCIA DE SOUZA','31-12-1960', 'C','PB','Cabaceiras','R.Pedro condeferação','R',18); -- proprietario id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (59769661287 ,'BENILDO FERNANDES DE AZEVEDO JUNIOR','19-10-1978', 'C','PB','Acrelandia','R.Crelandia 2','S',47); -- proprietario id
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,59769661287 ,'BENILDO FERNANDES DE AZEVEDO JUNIOR','19-10-1978', 'C','PB','Acrelandia','R.Crelandia 2','S',47); -- proprietario id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (52842371291,'BRENDA CARINA NUNES CARDOSO','29-04-1991', 'D','AC','Jordão','R.Crelandia jordao 1','R',54); -- proprietario id
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,52842371291,'BRENDA CARINA NUNES CARDOSO','29-04-1991', 'D','AC','Jordão','R.Crelandia jordao 1','R',54); -- proprietario id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (76425711272 ,'CARLA ELUANE DE ALMEIDA LEAL','15-11-1984', 'D','AC','Manaoel urbano','R.Placido jordao 1','R',57); -- proprietario id
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,76425711272 ,'CARLA ELUANE DE ALMEIDA LEAL','15-11-1984', 'D','AC','Manaoel urbano','R.Placido jordao 1','R',57); -- proprietario id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (76131147287,'CARLOS ALTEIR SANTOS FERREIRA','27/02/1982', 'D','AC','Placido de Castro','R.Placido Antonio 3','S',59); -- proprietario id
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,76131147287,'CARLOS ALTEIR SANTOS FERREIRA','27/02/1982', 'D','AC','Placido de Castro','R.Placido Antonio 3','S',59); -- proprietario id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (76131947287,'CARLOS HENRIQUE GOMES SANTIAGO','10-11-1970', 'E','AC','Xarupi','R.Placido xarupi 3','R',68); -- proprietario id
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,76131947287,'CARLOS HENRIQUE GOMES SANTIAGO','10-11-1970', 'E','AC','Xarupi','R.Placido xarupi 3','R',68); -- proprietario id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (76131947267,'CARLOS HENRIQUE SANTIAGO','10-12-1970', 'E','AL','Belo Monte','R.Placido Belo ','S',74); -- proprietario id
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,76131947267,'CARLOS HENRIQUE SANTIAGO','10-12-1970', 'E','AL','Belo Monte','R.Placido Belo ','S',74); -- proprietario id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (81949332968,'CAROLINA COSTA ROSA','27-10-1983', 'E','AL','Coite do Noia','R.Campo Alegre','S',79); -- proprietario id
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,81949332968,'CAROLINA COSTA ROSA','27-10-1983', 'E','AL','Coite do Noia','R.Campo Alegre','S',79); -- proprietario id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (16386110234 ,'CHRISTIAN KAMPMANN','30-12-1979', 'AB','AP','Cutias','R.Campo Alegre Cutias' ,'R',82); -- proprietario id
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,16386110234 ,'CHRISTIAN KAMPMANN','30-12-1979', 'AB','AP','Cutias','R.Campo Alegre Cutias' ,'R',82); -- proprietario id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (16386120234 ,'CLAUDINA BARRIGA NOBRE','21-12-1961', 'AB','AP','Serra do Navio','R.Campo Alegre Cutias' ,'S',91); -- proprietario id
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,16386120234 ,'CLAUDINA BARRIGA NOBRE','21-12-1961', 'AB','AP','Serra do Navio','R.Campo Alegre Cutias' ,'S',91); -- proprietario id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (16386000334 ,'DANILO PANTOJA LEITE','03-11-1992', 'AB','AP','Macapá','R.Macapá Alegre Cutias' ,'R',86); -- proprietario id
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,16386000334 ,'DANILO PANTOJA LEITE','03-11-1992', 'AB','AP','Macapá','R.Macapá Alegre Cutias' ,'R',86); -- proprietario id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (16386210334 ,'DANILO PANTOJA ','03-11-1992', 'AB','AP','Macapá','R.Macapá Alegre Cutias' ,'R',86); -- proprietario id
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,16386210334 ,'DANILO PANTOJA ','03-11-1992', 'AB','AP','Macapá','R.Macapá Alegre Cutias' ,'R',86); -- proprietario id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (79835295469,'JONAS PEREIRA CHAVES','1971-01-26', 'A','AM','Alvaraes','Aeroporto Velho-12','R',95); -- proprietario -id
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,79835295469,'JONAS PEREIRA CHAVES','1971-01-26', 'A','AM','Alvaraes','Aeroporto Velho-12','R',95); -- proprietario -id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (17789675495,'JOÃO GOMES NASCIMENTO','1971-02-26', 'AB','AM','Guajara','Laurindo Alab-12','R',103); -- proprietario -id
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,17789675495,'JOÃO GOMES NASCIMENTO','1971-02-26', 'AB','AM','Guajara','Laurindo Alab-12','R',103); -- proprietario -id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (25998495411,'PAULINO DA SILVA','1971-02-28', 'B','BA','Barro Alto','Águia de Haia-03','S',113); -- proprietario -id
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,25998495411,'PAULINO DA SILVA','1971-02-28', 'B','BA','Barro Alto','Águia de Haia-03','S',113); -- proprietario -id
-
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,37967889432,'GONCALO DE SOUSA','1978-03-29','ACC','BA','Gentil do Ouro','R.barra','R',118); -- proprietario id
-
-
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,64610764920,'ADRIANO FERNANDES CARDOSO','01-02-1969', 'C','CE','Boa Viagem','R.Pedro americo','R',126); -- proprietario id
-
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,18849739215,'ANA LUCIA DE SOUZA','31-12-1960', 'C','CE','Choro','R.Pedro condeferação','S',129); -- proprietario id
-
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,59769666287 ,'BENILDO FERNANDES DE AZEVEDO JUNIOR','19-10-1979', 'D','DF','Brasilia','R.Crelandia 2','R',138); -- proprietario id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (37967889432,'GONCALO DE SOUSA','1978-03-29','ACC','BA','Gentil do Ouro','R.barra','R',118); -- proprietario id
 
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,52842371299,'CARINA NUNES CARDOSO','29-04-1992', 'D','ES','Bom Jesus do Norte','R.Crelandia jordao 1','S',155); -- proprietario id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (64610764920,'ADRIANO FERNANDES CARDOSO','01-02-1969', 'C','CE','Boa Viagem','R.Pedro americo','R',126); -- proprietario id
+
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (18849739215,'ANA LUCIA DE SOUZA','31-12-1960', 'C','CE','Choro','R.Pedro condeferação','S',129); -- proprietario id
+
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (59769666287 ,'BENILDO FERNANDES DE AZEVEDO JUNIOR','19-10-1979', 'D','DF','Brasilia','R.Crelandia 2','R',138); -- proprietario id
 
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,76425711273,'ELUANE DE ALMEIDA LEAL','15-11-1985', 'D','GO','Baliza','R.Placido jordao 1','R',170); -- proprietario id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (52842371299,'CARINA NUNES CARDOSO','29-04-1992', 'D','ES','Bom Jesus do Norte','R.Crelandia jordao 1','S',155); -- proprietario id
 
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,76131947288,'ALTEIR SANTOS FERREIRA','27/02/1982', 'E','MA','Afonso Cunha','R.Placido Antonio 3','S',181); -- proprietario id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (76425711273,'ELUANE DE ALMEIDA LEAL','15-11-1985', 'D','GO','Baliza','R.Placido jordao 1','R',170); -- proprietario id
 
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,76131947237,'HENRIQUE GOMES SANTIAGO','10-11-1970', 'E','MT','Bacuri','R.Placido xarupi 3','R',198); -- proprietario id
-
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,76131947297,'CARLOS HENRIQUE SANTIAGO','10-12-1970', 'ACC','MS','Bonito','R.Placido Belo ','S',210); -- proprietario id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (76131947288,'ALTEIR SANTOS FERREIRA','27/02/1982', 'E','MA','Afonso Cunha','R.Placido Antonio 3','S',181); -- proprietario id
 
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,81949332268,'CAROLINA COSTA ROSA','27-10-1983', 'E','MG','Vicentina','R.Campo Alegre','S',220); -- proprietario id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (76131947237,'HENRIQUE GOMES SANTIAGO','10-11-1970', 'E','MT','Bacuri','R.Placido xarupi 3','R',198); -- proprietario id
+
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (76131947297,'CARLOS HENRIQUE SANTIAGO','10-12-1970', 'ACC','MS','Bonito','R.Placido Belo ','S',210); -- proprietario id
 
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,16386110224 ,'PEDRO CHRISTIAN KAMPMANN','30-12-1979', 'AB','PA','Juruti','R.Campo Alegre Cutias' ,'R',238); -- proprietario id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (81949332268,'CAROLINA COSTA ROSA','27-10-1983', 'E','MG','Vicentina','R.Campo Alegre','S',220); -- proprietario id
 
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,16386100234 ,'CLAUDINA ANA BARRIGA NOBRE','21-11-1961', 'AB','PR','Ceu Azul','R.Campo Alegre Cutias' ,'S',253); -- proprietario id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (16386110224 ,'PEDRO CHRISTIAN KAMPMANN','30-12-1979', 'AB','PA','Juruti','R.Campo Alegre Cutias' ,'R',238); -- proprietario id
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,16386111334 ,'DANILO HELENO PANTOJA LEITE','03-10-1992', 'AB','PE','Recife','R.Macapá Alegre Cutias' ,'R',265); -- proprietario id
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,16386320334 ,'DANILO ROMEU PANTOJA LEITE','04-11-1993', 'AB','PI','Batalha','R.Macapá Alegre Cutias' ,'R',281); -- proprietario id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (16386100234 ,'CLAUDINA ANA BARRIGA NOBRE','21-11-1961', 'AB','PR','Ceu Azul','R.Campo Alegre Cutias' ,'S',253); -- proprietario id
+
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (16386111334 ,'DANILO HELENO PANTOJA LEITE','03-10-1992', 'AB','PE','Recife','R.Macapá Alegre Cutias' ,'R',265); -- proprietario id
+
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (16386320334 ,'DANILO ROMEU PANTOJA LEITE','04-11-1993', 'AB','PI','Batalha','R.Macapá Alegre Cutias' ,'R',281); -- proprietario id
 
 
 --------------------------------------------- Mais Propritários da Paraíba--------------------------------------------------------------------------------
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,79835295478,'ADALBERTO PEREIRA CHAVES','1972-01-25', 'A','PB','Agua Branca','Aeroporto Velho-12','R',1); -- proprietario -id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (79835295478,'ADALBERTO PEREIRA CHAVES','1972-01-25', 'A','PB','Agua Branca','Aeroporto Velho-12','R',1); -- proprietario -id
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,07789675894,'ADRIANO GOMES NASCIMENTO','1972-01-26', 'AB','PB','Aguiar','Abraão Alab-12','R',2); -- proprietario -id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (07789675894,'ADRIANO GOMES NASCIMENTO','1972-01-26', 'AB','PB','Aguiar','Abraão Alab-12','R',2); -- proprietario -id
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,05998495421,'ALBERTO PAULINO DA SILVA','1973-02-28', 'B','PB','Conceicao','Águia de Haia-03','R',24); -- proprietario -id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (05998495421,'ALBERTO PAULINO DA SILVA','1973-02-28', 'B','PB','Conceicao','Águia de Haia-03','R',24); -- proprietario -id
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,07967800432,'ALEXANDRE GONCALO DE SOUSA' ,'1978-03-29', 'ACC','PB','João Pessoa','Tambaú','S',45); -- proprietario id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (07967800432,'ALEXANDRE GONCALO DE SOUSA' ,'1978-03-29', 'ACC','PB','João Pessoa','Tambaú','S',45); -- proprietario id
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,64610764921,'ADRIANO FERNANDES CARDOSO','02-02-1968', 'C','PB','Conde','R.Pedro americo','R',25); -- proprietario id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (64610764921,'ADRIANO FERNANDES CARDOSO','02-02-1968', 'C','PB','Conde','R.Pedro americo','R',25); -- proprietario id
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,18849539315,'ANA LUCIA DE SOUZA','31-12-1960', 'D','PB','Campina Grande','R.Pedro condeferação','R',22); -- proprietario id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (18849539315,'ANA LUCIA DE SOUZA','31-12-1960', 'D','PB','Campina Grande','R.Pedro condeferação','R',22); -- proprietario id
 
-INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,59769661247 ,'BENILDO FERNANDES DE AZEVEDO JUNIOR','19-10-1978', 'E','PB','Guarabira','R.Crelandia 2','S',37); -- proprietario id
+INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
+VALUES (59769661247 ,'BENILDO FERNANDES DE AZEVEDO JUNIOR','19-10-1978', 'E','PB','Guarabira','R.Crelandia 2','S',37); -- proprietario id
 
 ---- -----TABELA MARCA ----------
 
