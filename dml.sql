@@ -642,72 +642,75 @@ VALUES (18849539315,'ANA LUCIA DE SOUZA','31-12-1960', 'D','PB','Campina Grande'
 INSERT INTO condutor (cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
 VALUES (59769661247 ,'BENILDO FERNANDES DE AZEVEDO JUNIOR','19-10-1978', 'E','PB','Guarabira','R.Crelandia 2','S',37); -- proprietario id
 
+
 ---- -----TABELA MARCA ----------
 
-insert into marca (idmarca,nome,origem) values (1,'Volkswagen','Alemanha');
-insert into marca (idmarca,nome,origem) values (2,'Toyota','Japão');
-insert into marca (idmarca,nome,origem) values (3,'Renault- Nissan','Rússia');
-insert into marca (idmarca,nome,origem) values (4,'General Motors','Estados Unidos');
-insert into marca (idmarca,nome,origem) values (5,'Hyundai-Kia','Coreia do Su');
-insert into marca (idmarca,nome,origem) values (6,'Ford','Estados Unidos');
-insert into marca (idmarca,nome,origem) values (7,'Honda','Japão');
-insert into marca (idmarca,nome,origem) values (8,'Fiat-Chrysler','Itália');
-insert into marca (idmarca,nome,origem) values (9,'Peugeot-Citröen',' França');
-insert into marca (idmarca,nome,origem) values (10,'Suzuki-Maruti','Índia');
+insert into marca (nome,origem) values ('Volkswagen','Alemanha');
+insert into marca (nome,origem) values ('Toyota','Japão');
+insert into marca (nome,origem) values ('Renault- Nissan','Rússia');
+insert into marca (nome,origem) values ('General Motors','Estados Unidos');
+insert into marca (nome,origem) values ('Hyundai-Kia','Coreia do Su');
+insert into marca (nome,origem) values ('Ford','Estados Unidos');
+insert into marca (nome,origem) values ('Honda','Japão');
+insert into marca (nome,origem) values ('Fiat-Chrysler','Itália');
+insert into marca (nome,origem) values ('Peugeot-Citröen',' França');
+insert into marca (nome,origem) values (,'Suzuki-Maruti','Índia');
 
 
 ---- -----TABELA TIPO ----------
 
-insert into tipo (idtipo,descricao) values (1,'automóvel');
-insert into tipo (idtipo,descricao) values (2,'motocicleta');
-insert into tipo (idtipo,descricao) values (3,'automóvel');
-insert into tipo (idtipo,descricao) values (4,'caminhão');
-insert into tipo (idtipo,descricao) values (5,'charrete');
-insert into tipo (idtipo,descricao) values (6,'motocicleta');
-insert into tipo (idtipo,descricao) values (7,'caminhonete');
-insert into tipo (idtipo,descricao) values (8,'automóvel');
-insert into tipo (idtipo,descricao) values (9,'caminhonete');
-insert into tipo (idtipo,descricao) values (10,'caminhão');
+insert into tipo (descricao) values ('automóvel');
+insert into tipo (descricao) values ('motocicleta');
+insert into tipo (descricao) values ('automóvel');
+insert into tipo (descricao) values ('caminhão');
+insert into tipo (descricao) values ('charrete');
+insert into tipo (descricao) values ('motocicleta');
+insert into tipo (descricao) values ('caminhonete');
+insert into tipo (descricao) values ('automóvel');
+insert into tipo (descricao) values ('caminhonete');
+insert into tipo (descricao) values ('caminhão');
 
 ---- -----TABELA MODELO ----------
-insert into modelo (idModelo,denominacao,idMarca,idTipo) values (1,'O Volkswagen Gol foi lançado na década de 80',1,1);
 
-insert into modelo (idModelo,denominacao,idMarca,idTipo) values (2,'Toyota Corolla é um modelo compacto da Toyota oferecido em versões sedan, hatchback e perua',2,2);
+insert into modelo (denominacao,idMarca,idTipo) values ('O Volkswagen Gol foi lançado na década de 80',1,1);
 
-insert into modelo (idModelo,denominacao,idMarca,idTipo) values (3,'Sandero é o modelo da Renault mais vendido no mercado brasileiro de automóveis.',3,3);
+insert into modelo (denominacao,idMarca,idTipo) values ('Toyota Corolla é um modelo compacto da Toyota oferecido em versões sedan, hatchback e perua',2,2);
 
-insert into modelo (idModelo,denominacao,idMarca,idTipo) values (4,'Chevrolet Classic, foi um modelo compacto sedan de quatro portas fabricado pela Chevrolet',4,4);
+insert into modelo (denominacao,idMarca,idTipo) values ('Sandero é o modelo da Renault mais vendido no mercado brasileiro de automóveis.',3,3);
 
-insert into modelo (idModelo,denominacao,idMarca,idTipo) values (5,'O HB20S é um modelo sedan compacto de quatro portas fabricado pela Hyundai derivado do HB20',5,5);
+insert into modelo (denominacao,idMarca,idTipo) values ('Chevrolet Classic, foi um modelo compacto sedan de quatro portas fabricado pela Chevrolet',4,4);
+
+insert into modelo (denominacao,idMarca,idTipo) values ('O HB20S é um modelo sedan compacto de quatro portas fabricado pela Hyundai derivado do HB20',5,5);
+
+
 
 
 ---- -----TABELA ESPECIE----------
 
-insert into especie(idEspecie,descricao) values (1,'De passageiros');
-insert into especie(idEspecie,descricao) values (2,'Misto');
-insert into especie(idEspecie,descricao) values (3,'De Tração');
-insert into especie(idEspecie,descricao) values (4,'De passageiros');
-insert into especie(idEspecie,descricao) values (5,'De coleção');
-insert into especie(idEspecie,descricao) values (6,'De passageiros');
-insert into especie(idEspecie,descricao) values (7,' Misto');
-insert into especie(idEspecie,descricao) values (8,'De passageiros');
-insert into especie(idEspecie,descricao) values (9,' Misto');
-insert into especie(idEspecie,descricao) values (10,'De Tração');
+insert into especie(descricao) values ('De passageiros');
+insert into especie(descricao) values ('Misto');
+insert into especie(descricao) values ('De Tração');
+insert into especie(descricao) values ('De passageiros');
+insert into especie(descricao) values ('De coleção');
+insert into especie(descricao) values ('De passageiros');
+insert into especie(descricao) values (' Misto');
+insert into especie(descricao) values ('De passageiros');
+insert into especie(descricao) values (' Misto');
+insert into especie(descricao) values ('De Tração');
+
 
 ---- -----TABELA CATEGORIA_VEICULO----------
 
-insert into categoria_veiculos(idCategoria,nome,idEspecie) values (DEFAULT,'Oficial',1);
-insert into categoria_veiculos(idCategoria,nome,idEspecie) values (DEFAULT,'Particular',2);
-insert into categoria_veiculos(idCategoria,nome,idEspecie) values (DEFAULT,'Oficial',3);
-insert into categoria_veiculos(idCategoria,nome,idEspecie) values (DEFAULT,'Particular',4);
-insert into categoria_veiculos(idCategoria,nome,idEspecie) values (DEFAULT,'Aprendizagem',5);
-insert into categoria_veiculos(idCategoria,nome,idEspecie) values (DEFAULT,'Aluguel',6);
-insert into categoria_veiculos(idCategoria,nome,idEspecie) values (DEFAULT,'Aprendizagem',7);
-insert into categoria_veiculos(idCategoria,nome,idEspecie) values (DEFAULT,'Aluguel',8);
-insert into categoria_veiculos(idCategoria,nome,idEspecie) values (DEFAULT,'Aluguel',9);
-insert into categoria_veiculos(idCategoria,nome,idEspecie) values (DEFAULT,'Particular',10);
-
-
+insert into categoria_veiculos(nome,idEspecie) values ('Oficial',1);
+insert into categoria_veiculos(nome,idEspecie) values ('Particular',2);
+insert into categoria_veiculos(nome,idEspecie) values ('Oficial',3);
+insert into categoria_veiculos(nome,idEspecie) values ('Particular',4);
+insert into categoria_veiculos(nome,idEspecie) values ('Aprendizagem',5);
+insert into categoria_veiculos(nome,idEspecie) values ('Aluguel',6);
+insert into categoria_veiculos(nome,idEspecie) values ('Aprendizagem',7);
+insert into categoria_veiculos(nome,idEspecie) values ('Aluguel',8);
+insert into categoria_veiculos(nome,idEspecie) values ('Aluguel',9);
+insert into categoria_veiculos(nome,idEspecie) values ('Particular',10);
 
 
 ---- -----TABELA VEICULO ----------
