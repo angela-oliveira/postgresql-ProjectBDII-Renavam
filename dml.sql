@@ -654,7 +654,7 @@ insert into marca (nome,origem) values ('Ford','Estados Unidos');
 insert into marca (nome,origem) values ('Honda','Japão');
 insert into marca (nome,origem) values ('Fiat-Chrysler','Itália');
 insert into marca (nome,origem) values ('Peugeot-Citröen',' França');
-insert into marca (nome,origem) values (,'Suzuki-Maruti','Índia');
+insert into marca (nome,origem) values ('Suzuki-Maruti','Índia');
 
 
 ---- -----TABELA TIPO ----------
