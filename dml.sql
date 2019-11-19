@@ -522,7 +522,7 @@ INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco
 VALUES (default,07967809432,'ALEXANDRE GONCALO DE SOUSA','1972-02-29', 'B','PB','João Pessoa','Tambaú','S',45); -- proprietario id
 
 INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,64610764920,'ADRIANO FERNANDES CARDOSO','01-02-1968', 'C','PB','"Baia da Traicao"','R.Pedro americo','R',9); -- proprietario id
+VALUES (default,64610764320,'ADRIANO FERNANDES CARDOSO','01-02-1968', 'C','PB','"Baia da Traicao"','R.Pedro americo','R',9); -- proprietario id
 
 INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
 VALUES (default,18849539215,'ANA LUCIA DE SOUZA','31-12-1960', 'C','PB','Cabaceiras','R.Pedro condeferação','R',18); -- proprietario id
@@ -638,7 +638,7 @@ INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco
 VALUES (default,64610764921,'ADRIANO FERNANDES CARDOSO','02-02-1968', 'C','PB','Conde','R.Pedro americo','R',25); -- proprietario id
 
 INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
-VALUES (default,18849539215,'ANA LUCIA DE SOUZA','31-12-1960', 'D','PB','Campina Grande','R.Pedro condeferação','R',22); -- proprietario id
+VALUES (default,18849539315,'ANA LUCIA DE SOUZA','31-12-1960', 'D','PB','Campina Grande','R.Pedro condeferação','R',22); -- proprietario id
 
 INSERT INTO condutor (idcadastro,cpf,nome,datanasc,idcategoriacnh,id_uf,endereco,bairro,situacaocnh,idcidade)
 VALUES (default,59769661247 ,'BENILDO FERNANDES DE AZEVEDO JUNIOR','19-10-1978', 'E','PB','Guarabira','R.Crelandia 2','S',37); -- proprietario id
