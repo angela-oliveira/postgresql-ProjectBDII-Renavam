@@ -1,4 +1,4 @@
----------- Função para o calculo renavam ------------
+######################## Função para o calculo renavam ########################
 
 CREATE OR REPLACE FUNCTION calculo_renavam()
 RETURNS char(13)
@@ -30,19 +30,25 @@ END; $$
 LANGUAGE plpgsql;
 
 	
------- Função que retorna uma trigger para fazer Transferência Propriedade --------
-		######### EM ANDAMENTO #########
+############### Função que retorna  trigger para fazer Transferência de Propriedade ###############
 		
 CREATE OR REPLACE FUNCTION TransferenciaPropriedade()
 RETURNS TRIGGER AS $$
 BEGIN
-	insert tranferencia();
+	insert into transferencia select 
+	old.idproprietario,old.renavam,OLD.idproprietario,OLD.dataaquisicao,new.dataaquisicao;
+	return new;
 
 END; $$
 LANGUAGE plpgsql;
 
 CREATE TRIGGER transferencia
-{BEFORE ou AFTER}
+AFTER
 UPDATE ON veiculo
 FOR EACH ROW
 EXECUTE PROCEDURE TransferenciaPropriedade();
+
+----Testando Trigger
+update veiculo
+set idproprietario = 3, dataaquisicao = '11/06/2019'
+where renavam = '44129834981'
