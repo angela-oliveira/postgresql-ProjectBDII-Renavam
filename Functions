@@ -58,7 +58,7 @@ where renavam = '44129834981'
 ############### teste para licenciamento ###############
 
 
-CREATE OR REPLACE FUNCTION TESTE1(placaa varchar ,ano1 integer,fator_pago varchar )
+CREATE OR REPLACE FUNCTION TESTE1(placaa varchar ,ano1 integer,fator_pago varchar)
 RETURNS boolean 
 LANGUAGE plpgsql 
 AS $$
@@ -79,7 +79,7 @@ DECLARE
 
 BEGIN 
 
-OPEN CUR_PLACA;
+open CUR_PLACA;
 OPEN CUR_PAGO;
 ano1 = 0;
 placaa = 0;
@@ -133,9 +133,13 @@ close CUR_PAGO;
 end loop;
 END $$;
 
-select teste('AAA9911','2018')
+select TESTE1('AAA9911','2018','S')
 
 DROP FUNCTION teste1(character varying,integer)
+
+-------------INSERT PRA TESTE------------------------------------------
+insert into licenciamento (ano,renavam,datavenc,pago ) values ('2016','63658269222','28-03-2019','S');
+
 
 select * from veiculo
 select * from licenciamento
