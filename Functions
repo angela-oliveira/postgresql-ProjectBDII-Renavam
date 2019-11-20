@@ -35,8 +35,8 @@ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION TransferenciaPropriedade()
 RETURNS TRIGGER AS $$
 BEGIN
-	insert into transferencia select 
-	old.idproprietario,old.renavam,OLD.idproprietario,OLD.dataaquisicao,new.dataaquisicao;
+	insert into transferencia (renavam,idproprietario,datacompra,datavenda) values 
+	(old.renavam,OLD.idproprietario,OLD.dataaquisicao,new.dataaquisicao);
 	return new;
 
 END; $$
@@ -48,10 +48,11 @@ UPDATE ON veiculo
 FOR EACH ROW
 EXECUTE PROCEDURE TransferenciaPropriedade();
 
-----Testando Trigger
+
 update veiculo
 set idproprietario = 3, dataaquisicao = '11/06/2019'
 where renavam = '44129834981'
+
 
 
 
