@@ -52,3 +52,68 @@ EXECUTE PROCEDURE TransferenciaPropriedade();
 update veiculo
 set idproprietario = 3, dataaquisicao = '11/06/2019'
 where renavam = '44129834981'
+
+
+
+############### teste para licenciamento ###############
+
+CREATE OR REPLACE FUNCTION TESTE1(placaa varchar ,ano1 integer )
+RETURNS void 
+LANGUAGE plpgsql 
+AS $$
+DECLARE 
+	
+	REGISTRO RECORD;
+	CUR_PLACA CURSOR FOR SELECT v.placa,v.ano  FROM veiculo v join licenciamento l
+         on v.renavam = l.renavam 
+	 where v.ano :: text LIKE v.placa || v.ano ORDER BY ano;
+        ano1 integer;
+	placaa varchar;
+
+BEGIN 
+
+open CUR_PLACA;
+ano1 = 0;
+placaa = 0;
+
+loop 
+FETCH LAST FROM CUR_PLACA into REGISTRO;
+EXIT WHEN NOT FOUND;
+
+if REGISTRO.placaa then
+	select placa, max(REGISTRO.placaa ) as Final_placa,
+	case when Final_placa = '1' then '28-03-2019'
+	when Final_placa = '2'then '28-03-2019'
+	else 'valor não corresponde a nem uma placa'
+	end as Data_limite
+	from veiculo v join licenciamento l 
+	on v.renavam = l.renavam 
+	where v.placa;
+end if ;
+
+	if exists (select v.ano,l.datavenc  from veiculo v join licenciamento l 
+	on v.renavam = l.renavam 
+	where v.renavam = REGISTRO.placaa and l.datavenc= lpad ((datavenc || ano ),'0',8))then 
+		 update veiculo 
+		 set ano = ano1 
+		 from licenciamento 
+		 where renavam = REGISTRO.placaa and l.datavenc = lpad ((datavenc || ano ),'0',8);
+	insert into veiculo
+	  (placa,ano)
+	  select datavenc,ano
+	  from licenciamento;
+	else 
+	   insert into veiculo values(REGISTRO.placaa,lpad ((datavenc || ano ),'0',8),ano);
+	                
+	end if;
+close CUR_PLACA;
+
+end loop;
+END $$;
+
+select teste('AAA9911','2018')
+
+DROP FUNCTION teste1(character varying,integer)
+
+select * from veiculo
+select * from licenciamento
