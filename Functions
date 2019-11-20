@@ -58,39 +58,52 @@ where renavam = '44129834981'
 ############### teste para licenciamento ###############
 
 CREATE OR REPLACE FUNCTION TESTE1(placaa varchar ,ano1 integer )
-RETURNS void 
+RETURNS boolean 
 LANGUAGE plpgsql 
 AS $$
 DECLARE 
 	
 	REGISTRO RECORD;
-	CUR_PLACA CURSOR FOR SELECT v.placa,v.ano  FROM veiculo v join licenciamento l
+	CUR_PLACA CURSOR FOR SELECT v.placa,v.ano,l.pago FROM veiculo v join licenciamento l
          on v.renavam = l.renavam 
 	 where v.ano :: text LIKE v.placa || v.ano ORDER BY ano;
         ano1 integer;
 	placaa varchar;
+	S char;
+	N char;
+
 
 BEGIN 
 
 open CUR_PLACA;
 ano1 = 0;
 placaa = 0;
+S = true;
+N = False;
+
 
 loop 
 FETCH LAST FROM CUR_PLACA into REGISTRO;
 EXIT WHEN NOT FOUND;
 
-if REGISTRO.placaa then
+IF REGISTRO.pago = 'S' then
+   raise notice 'Licenciamento pode ser lançado %',pago;
+   return True;
+   else 
+   raise notice 'Licenciamento não pode ser lançado %',pago;
+   return False;
+ 
+if REGISTRO.pago = 'S' then
 	select placa, max(REGISTRO.placaa ) as Final_placa,
 	case when Final_placa = '1' then '28-03-2019'
-	when Final_placa = '2'then '28-03-2019'
+	     when Final_placa = '2' then '28-03-2019'
 	else 'valor não corresponde a nem uma placa'
 	end as Data_limite
 	from veiculo v join licenciamento l 
 	on v.renavam = l.renavam 
 	where v.placa;
 end if ;
-
+end if;
 	if exists (select v.ano,l.datavenc  from veiculo v join licenciamento l 
 	on v.renavam = l.renavam 
 	where v.renavam = REGISTRO.placaa and l.datavenc= lpad ((datavenc || ano ),'0',8))then 
