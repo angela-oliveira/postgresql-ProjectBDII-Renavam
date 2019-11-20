@@ -57,7 +57,8 @@ where renavam = '44129834981'
 
 ############### teste para licenciamento ###############
 
-CREATE OR REPLACE FUNCTION TESTE1(placaa varchar ,ano1 integer )
+
+CREATE OR REPLACE FUNCTION TESTE1(placaa varchar ,ano1 integer,fator_pago varchar )
 RETURNS boolean 
 LANGUAGE plpgsql 
 AS $$
@@ -66,25 +67,32 @@ DECLARE
 	REGISTRO RECORD;
 	CUR_PLACA CURSOR FOR SELECT v.placa,v.ano,l.pago FROM veiculo v join licenciamento l
          on v.renavam = l.renavam 
-	 where v.ano :: text LIKE v.placa || v.ano ORDER BY ano;
-        ano1 integer;
-	placaa varchar;
-	S char;
-	N char;
-
+	 where v.ano :: text LIKE v.placa || v.ano ORDER BY v.ano;
+		ano1 integer;
+		placaa varchar;
+		
+	CUR_pago CURSOR FOR SELECT l.pago FROM licenciamento l
+	 where l.pago = 'S'
+	 ORDER BY pago;
+               S char;
+	       N char;
 
 BEGIN 
 
-open CUR_PLACA;
+OPEN CUR_PLACA;
+OPEN CUR_PAGO;
 ano1 = 0;
 placaa = 0;
-S = true;
+S = True;
 N = False;
 
 
 loop 
 FETCH LAST FROM CUR_PLACA into REGISTRO;
 EXIT WHEN NOT FOUND;
+FETCH NEXT FROM CUR_PAGO into REGISTRO;
+EXIT WHEN NOT FOUND;
+
 
 IF REGISTRO.pago = 'S' then
    raise notice 'Licenciamento pode ser lançado %',pago;
@@ -96,7 +104,7 @@ IF REGISTRO.pago = 'S' then
 if REGISTRO.pago = 'S' then
 	select placa, max(REGISTRO.placaa ) as Final_placa,
 	case when Final_placa = '1' then '28-03-2019'
-	     when Final_placa = '2' then '28-03-2019'
+	when Final_placa = '2'then '28-03-2019'
 	else 'valor não corresponde a nem uma placa'
 	end as Data_limite
 	from veiculo v join licenciamento l 
@@ -120,6 +128,7 @@ end if;
 	                
 	end if;
 close CUR_PLACA;
+close CUR_PAGO;
 
 end loop;
 END $$;
