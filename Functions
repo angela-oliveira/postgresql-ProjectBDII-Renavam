@@ -57,7 +57,6 @@ where renavam = '44129834981'
 
 ############### teste para licenciamento ###############
 
-
 CREATE OR REPLACE FUNCTION TESTE1(placaa varchar ,ano1 integer,fator_pago varchar)
 RETURNS boolean 
 LANGUAGE plpgsql 
@@ -114,17 +113,17 @@ end if ;
 end if;
 	if exists (select v.ano,l.datavenc  from veiculo v join licenciamento l 
 	on v.renavam = l.renavam 
-	where v.renavam = REGISTRO.placaa and l.datavenc= lpad ((datavenc || ano ),'0',8))then 
+	where v.renavam = REGISTRO.placaa and l.datavenc= lpad ((datavenc || ano ),'0',4))then 
 		 update veiculo 
-		 set ano = ano1 
+		 set ano = ano1+1 
 		 from licenciamento 
-		 where renavam = REGISTRO.placaa and l.datavenc = lpad ((datavenc || ano ),'0',8);
+		 where renavam = REGISTRO.placaa and l.datavenc = lpad ((datavenc || ano ),'0',4);
 	insert into veiculo
-	  (placa,ano)
+	  (datavenc,ano)
 	  select datavenc,ano
 	  from licenciamento;
 	else 
-	   insert into veiculo values(REGISTRO.placaa,lpad ((datavenc || ano ),'0',8),ano);
+	   insert into veiculo values(REGISTRO.placaa,lpad ((datavenc || ano ),'0',4),ano);
 	                
 	end if;
 close CUR_PLACA;
@@ -135,7 +134,7 @@ END $$;
 
 select TESTE1('AAA9911','2018','S')
 
-DROP FUNCTION teste1(character varying,integer)
+DROP FUNCTION teste1(character varying,integer,character varying)
 
 -------------INSERT PRA TESTE------------------------------------------
 insert into licenciamento (ano,renavam,datavenc,pago ) values ('2016','63658269222','28-03-2019','S');
