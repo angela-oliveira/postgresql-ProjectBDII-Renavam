@@ -141,7 +141,7 @@ CONSTRAINT CHK_multa_pago CHECK (pago = 'S' or pago = 'N')
 
 CREATE TABLE transferencia (
 idHistorico serial NOT NULL,
-renavam char(3) NOT NULL,
+renavam char(13) NOT NULL,
 idProprietario integer NOT NULL,
 dataCompra date NOT NULL,
 dataVenda date,
