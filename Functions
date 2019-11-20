@@ -154,7 +154,7 @@ Begin
 For placa in placas LOOP
 select RIGHT(placa.placa, 1) into final_placa;
 case 
-	when final_placa = 1 then INSERT INTO Licenciamento values (1999, placa.renavam, '11-01-2011', 'N');
+	when final_placa = 1 then INSERT INTO Licenciamento values (1999, placa.renavam, '11-01-2011', 'S');
 	when final_placa = 3 then INSERT INTO Licenciamento values (2000, placa.renavam, '03-03-2013', 'S');
 	else raise notice '';
 End Case;
