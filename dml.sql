@@ -726,9 +726,16 @@ insert into veiculo (select calculo_renavam(),'AAE4378',2017,8,8,2,8,'11/07/2018
 insert into veiculo (select calculo_renavam(),'AAB4518',2015,9,9,3,9,'19/05/2017','19/05/2017',26000,'R');
 insert into veiculo (select calculo_renavam(),'AQE4568',2013,10,10,1,10,'30/01/2014','30/01/2014',21000,'R');
 
-
-
-
+insert into veiculo (select calculo_renavam(),'ABA9911',2016,1,1,1,1,'28/03/2017','28/03/2017',9000,'R');
+insert into veiculo (select calculo_renavam(),'ACA9341',2016,2,2,2,2,'01/04/2017','01/04/2017',15000,'R');
+insert into veiculo (select calculo_renavam(),'AAF9840',2016,3,3,3,3,'10/07/2017','10/07/2017',30000,'R');
+insert into veiculo (select calculo_renavam(),'ATA9882',2015,4,4,4,4,'10/09/2015','10/09/2016',20000,'R');
+insert into veiculo (select calculo_renavam(),'QAA9804',2015,5,5,5,5,'22/10/2018','22/10/2016',20000,'R');
+insert into veiculo (select calculo_renavam(),'LAA9985',2015,6,6,5,6,'25/11/2016','25/11/2016',35000,'R');
+insert into veiculo (select calculo_renavam(),'RAA4486',2014,7,7,4,7,'21/04/2015','21/04/2015',20000,'R');
+insert into veiculo (select calculo_renavam(),'CAE4377',2017,8,8,2,8,'11/07/2018','11/07/2018',40000,'R');
+insert into veiculo (select calculo_renavam(),'PAB4519',2015,9,9,3,9,'19/05/2017','19/05/2017',26000,'R');
+insert into veiculo (select calculo_renavam(),'SQE4568',2013,10,10,1,10,'30/01/2014','30/01/2014',21000,'R');
 
 
 
