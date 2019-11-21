@@ -98,3 +98,28 @@ select * from veiculo;
 
 -- PARA APAGAR A FUNÇÃO: DROP FUNCTION TESTE1()
 
+#################### Função que retorna uma tabela  com  o histórico de transação através do renavam do veículo ####################
+			
+							--- Em andamento -----
+			
+CREATE OR REPLACE FUNCTION historico(renavam_ CHAR)
+	RETURNS TABLE (
+		_renavam char(3),
+		_idproprietario int,
+		_dataCompra date,
+		_dataVenda date
+		)
+AS $$
+BEGIN
+  RETURN QUERY
+	SELECT renavam,idproprietario,datacompra,datavenda
+	FROM transferencia
+	WHERE renavam = renavam_;
+END; $$
+LANGUAGE 'plpgsql';
+
+-- testando
+select * from historico('48589113474')
+
+
+
