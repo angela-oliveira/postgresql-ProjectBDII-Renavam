@@ -101,25 +101,26 @@ select * from veiculo;
 #################### Função que retorna uma tabela  com  o histórico de transação através do renavam do veículo ####################
 			
 							--- Em andamento -----
-			
-CREATE OR REPLACE FUNCTION historico(renavam_ CHAR)
+			CREATE OR REPLACE FUNCTION historico (renavam_ CHAR)
 	RETURNS TABLE (
-		_renavam char(3),
-		_idproprietario int,
+		_renavam char(13),
+		_idproprietario int, -- só pra teste 
+		_ano int,
+		_nome varchar(50),
 		_dataCompra date,
 		_dataVenda date
 		)
 AS $$
 BEGIN
   RETURN QUERY
-	SELECT renavam,idproprietario,datacompra,datavenda
-	FROM transferencia
-	WHERE renavam = renavam_;
+	SELECT ve.renavam,t.idproprietario,ve.ano,con.nome,t.datacompra,t.datavenda
+	FROM transferencia t  join 
+	veiculo ve on t.renavam = ve.renavam join condutor con on
+	t.idproprietario = con.idcadastro
+	WHERE ve.renavam = renavam_;
 END; $$
 LANGUAGE 'plpgsql';
-
--- testando
-select * from historico('48589113474')
+select * from historico('48589113474  ')
 
 
 
