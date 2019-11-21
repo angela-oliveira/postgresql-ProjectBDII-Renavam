@@ -58,109 +58,43 @@ where renavam = '44129834981'
 
 ############### teste para licenciamento ###############
 
-CREATE OR REPLACE FUNCTION TESTE1(placaa varchar ,ano1 integer,fator_pago varchar)
-RETURNS boolean 
-LANGUAGE plpgsql 
-AS $$
-DECLARE 
-	
-	REGISTRO RECORD;
-	CUR_PLACA CURSOR FOR SELECT v.placa,v.ano,l.pago FROM veiculo v join licenciamento l
-         on v.renavam = l.renavam 
-	 where v.ano :: text LIKE v.placa || v.ano ORDER BY v.ano;
-		ano1 integer;
-		placaa varchar;
-		
-	CUR_pago CURSOR FOR SELECT l.pago FROM licenciamento l
-	 where l.pago = 'S'
-	 ORDER BY pago;
-               S char;
-	       N char;
-
-BEGIN 
-
-open CUR_PLACA;
-OPEN CUR_PAGO;
-ano1 = 0;
-placaa = 0;
-S = True;
-N = False;
-
-
-loop 
-FETCH LAST FROM CUR_PLACA into REGISTRO;
-EXIT WHEN NOT FOUND;
-FETCH NEXT FROM CUR_PAGO into REGISTRO;
-EXIT WHEN NOT FOUND;
-
-
-IF REGISTRO.pago = 'S' then
-   raise notice 'Licenciamento pode ser lançado %',pago;
-   return True;
-   else 
-   raise notice 'Licenciamento não pode ser lançado %',pago;
-   return False;
- 
-if REGISTRO.pago = 'S' then
-	select placa, max(REGISTRO.placaa ) as Final_placa,
-	case when Final_placa = '1' then '28-03-2019'
-	when Final_placa = '2'then '28-03-2019'
-	else 'valor não corresponde a nem uma placa'
-	end as Data_limite
-	from veiculo v join licenciamento l 
-	on v.renavam = l.renavam 
-	where v.placa;
-end if ;
-end if;
-	if exists (select v.ano,l.datavenc  from veiculo v join licenciamento l 
-	on v.renavam = l.renavam 
-	where v.renavam = REGISTRO.placaa and l.datavenc= lpad ((datavenc || ano ),'0',4))then 
-		 update veiculo 
-		 set ano = ano1+1 
-		 from licenciamento 
-		 where renavam = REGISTRO.placaa and l.datavenc = lpad ((datavenc || ano ),'0',4);
-	insert into veiculo
-	  (datavenc,ano)
-	  select datavenc,ano
-	  from licenciamento;
-	else 
-	   insert into veiculo values(REGISTRO.placaa,lpad ((datavenc || ano ),'0',4),ano);
-	                
-	end if;
-close CUR_PLACA;
-close CUR_PAGO;
-
-end loop;
-END $$;
-
-select TESTE1('AAA9911','2018','S')
-
-DROP FUNCTION teste1(character varying,integer,character varying)
-
--------------INSERT PRA TESTE------------------------------------------
-insert into licenciamento (ano,renavam,datavenc,pago ) values ('2016','63658269222','28-03-2019','S');
-
-
-select * from veiculo
-select * from licenciamento
-
-
 --------------------------cursor feito--- teste----------------
 
-DO $$
+CREATE OR REPLACE function TESTE1()
+returns void
+LANGUAGE plpgsql 
+AS $$
+
 Declare
 final_placa Integer;
 placas CURSOR for select * from veiculo v;
+
 Begin 
-For placa in placas LOOP
-select RIGHT(placa.placa, 1) into final_placa;
+For placaa in placas LOOP
+select RIGHT(placaa.placa, 1) into final_placa;
 case 
-	when final_placa = 1 then INSERT INTO Licenciamento values (1999, placa.renavam, '11-01-2011', 'S');
-	when final_placa = 3 then INSERT INTO Licenciamento values (2000, placa.renavam, '03-03-2013', 'S');
-	else raise notice '';
+	when final_placa = 1 then INSERT INTO Licenciamento values (2019, placaa.renavam, '28/03/2019', 'S');
+	when final_placa = 2 then INSERT INTO Licenciamento values (2019, placaa.renavam, '30/04/2019', 'S');
+	when final_placa = 3 then INSERT INTO Licenciamento values (2019, placaa.renavam, '30/05/2019', 'S');
+	when final_placa = 4 then INSERT INTO Licenciamento values (2019, placaa.renavam, '29/06/2019', 'S');
+	when final_placa = 5 then INSERT INTO Licenciamento values (2019, placaa.renavam, '31/07/2019', 'S');
+	when final_placa = 6 then INSERT INTO Licenciamento values (2019, placaa.renavam, '31/08/2019', 'S');
+	when final_placa = 7 then INSERT INTO Licenciamento values (2019, placaa.renavam, '28/09/2019', 'S');
+	when final_placa = 8 then INSERT INTO Licenciamento values (2019, placaa.renavam, '31/10/2019', 'S');
+	when final_placa = 9 then INSERT INTO Licenciamento values (2019, placaa.renavam, '30/11/2019', 'S');
+	when final_placa = 0 then INSERT INTO Licenciamento values (2019, placaa.renavam, '28/12/2019', 'S');
+	else raise notice 'NÂO FINALIZADO';
+	
+COMMIT;	
+RAISE NOTICE 'ERRO';	
 End Case;
 End Loop;
-End$$;
 
-select * from licenciamento
+SELECT TESTE1()
+
+select * from veiculo;
+
+-- PARA APAGAR OS INSERTES : TRUNCATE TABLE licenciamento
+
+-- PARA APAGAR A FUNÇÃO: DROP FUNCTION TESTE1()
 
