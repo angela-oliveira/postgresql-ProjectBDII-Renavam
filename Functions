@@ -101,7 +101,7 @@ select * from veiculo;
 #################### Função que retorna uma tabela  com  o histórico de transação através do renavam do veículo ####################
 			
 							--- Em andamento -----
-			CREATE OR REPLACE FUNCTION historico (renavam_ CHAR)
+CREATE OR REPLACE FUNCTION historico (renavam_ CHAR)
 	RETURNS TABLE (
 		_renavam char(13),
 		_idproprietario int, -- só pra teste 
