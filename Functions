@@ -60,6 +60,8 @@ where renavam = '44129834981'
 
 --------------------------cursor feito--- teste----------------
 
+
+
 CREATE OR REPLACE function TESTE1()
 returns void
 LANGUAGE plpgsql 
@@ -89,6 +91,7 @@ COMMIT;
 RAISE NOTICE 'ERRO';	
 End Case;
 End Loop;
+End$$;
 
 SELECT TESTE1()
 
