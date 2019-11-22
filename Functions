@@ -123,7 +123,7 @@ select RIGHT(placaa.placa, 1) into final_placa;
 case 
 
 	when final_placa = 1 then UPDATE licenciamento SET datavenc = '28/03/2019' WHERE datavenc= '28/03/2018';
-	when final_placa = 2 then UPDATE licenciamento SET datavenc = '30/04/2019' WHERE datavenc= '30/0/2018';
+	when final_placa = 2 then UPDATE licenciamento SET datavenc = '30/04/2019' WHERE datavenc= '30/04/2018';
 	when final_placa = 3 then UPDATE licenciamento SET datavenc = '30/05/2019' WHERE datavenc= '30/05/2018';
 	when final_placa = 4 then UPDATE licenciamento SET datavenc = '29/06/2019' WHERE datavenc= '29/06/2018';
 	when final_placa = 5 then UPDATE licenciamento SET datavenc = '31/07/2019' WHERE datavenc= '31/07/2018';
