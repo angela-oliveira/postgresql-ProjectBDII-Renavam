@@ -108,6 +108,7 @@ End$$;
 ---------------------------FUNCTION OFICIAL DA TABELA LICENCIAMENTO--------------------------------------------
 ----ATUALIZAÇÃO DA DATA DE VENCIMENTO
 
+
 CREATE OR REPLACE function DATA_VENCIMENTO()
 returns void
 LANGUAGE plpgsql 
@@ -122,23 +123,24 @@ For placaa in placas LOOP
 select RIGHT(placaa.placa, 1) into final_placa;
 case 
 
-	when final_placa = 1 then UPDATE licenciamento SET datavenc = '28/03/2019' WHERE datavenc= '28/03/2018';
-	when final_placa = 2 then UPDATE licenciamento SET datavenc = '30/04/2019' WHERE datavenc= '30/04/2018';
-	when final_placa = 3 then UPDATE licenciamento SET datavenc = '30/05/2019' WHERE datavenc= '30/05/2018';
-	when final_placa = 4 then UPDATE licenciamento SET datavenc = '29/06/2019' WHERE datavenc= '29/06/2018';
-	when final_placa = 5 then UPDATE licenciamento SET datavenc = '31/07/2019' WHERE datavenc= '31/07/2018';
-	when final_placa = 6 then UPDATE licenciamento SET datavenc = '31/08/2019' WHERE datavenc= '31/08/2018';
-	when final_placa = 7 then UPDATE licenciamento SET datavenc = '28/09/2019' WHERE datavenc= '28/09/2018';
-	when final_placa = 8 then UPDATE licenciamento SET datavenc = '31/10/2019' WHERE datavenc= '31/10/2018';
-	when final_placa = 9 then UPDATE licenciamento SET datavenc = '30/11/2019' WHERE datavenc= '30/11/2018';
-	when final_placa = 0 then UPDATE licenciamento SET datavenc = '28/12/2019' WHERE datavenc= '28/12/2018';
+	when final_placa = 1 then UPDATE licenciamento SET datavenc = '28/03/2019' WHERE datavenc= placaa.datavenc;
+	when final_placa = 2 then UPDATE licenciamento SET datavenc = '30/04/2019' WHERE datavenc= placaa.datavenc;
+	when final_placa = 3 then UPDATE licenciamento SET datavenc = '30/05/2019' WHERE datavenc= placaa.datavenc;
+	when final_placa = 4 then UPDATE licenciamento SET datavenc = '29/06/2019' WHERE datavenc= placaa.datavenc;
+	when final_placa = 5 then UPDATE licenciamento SET datavenc = '31/07/2019' WHERE datavenc= placaa.datavenc;
+	when final_placa = 6 then UPDATE licenciamento SET datavenc = '31/08/2019' WHERE datavenc= placaa.datavenc;
+	when final_placa = 7 then UPDATE licenciamento SET datavenc = '28/09/2019' WHERE datavenc= placaa.datavenc;
+	when final_placa = 8 then UPDATE licenciamento SET datavenc = '31/10/2019' WHERE datavenc= placaa.datavenc;
+	when final_placa = 9 then UPDATE licenciamento SET datavenc = '30/11/2019' WHERE datavenc= placaa.datavenc;
+	when final_placa = 0 then UPDATE licenciamento SET datavenc = '28/12/2019' WHERE datavenc= placaa.datavenc;
+	else raise notice 'NÂO FINALIZADO';
 
 
-	
+COMMIT;	
+RAISE NOTICE 'ERRO';	
 End Case;
 End Loop;
 End$$;
-
 
 #################### Função que retorna uma tabela  com  o histórico de transação através do renavam do veículo ####################
 			
