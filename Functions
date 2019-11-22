@@ -122,16 +122,17 @@ For placaa in placas LOOP
 select RIGHT(placaa.placa, 1) into final_placa;
 case 
 
-	when final_placa = 1 then UPDATE licenciamento SET datavenc = '28/03/2019' WHERE datavenc= '2018-03-28';
-	when final_placa = 2 then UPDATE licenciamento SET datavenc = '30/04/2019' WHERE datavenc= '2018-04-30';
-	when final_placa = 3 then UPDATE licenciamento SET datavenc = '30/05/2019' WHERE datavenc= '29/06/2018';
-	when final_placa = 4 then UPDATE licenciamento SET datavenc = '29/06/2019' WHERE datavenc= '31/07/2018';
-	when final_placa = 5 then UPDATE licenciamento SET datavenc = '31/07/2019' WHERE datavenc= '31/08/2018';
-	when final_placa = 6 then UPDATE licenciamento SET datavenc = '31/08/2019' WHERE datavenc= '28/09/2018';
-	when final_placa = 7 then UPDATE licenciamento SET datavenc = '28/09/2019' WHERE datavenc= '31/10/2018';
+	when final_placa = 1 then UPDATE licenciamento SET datavenc = '28/03/2019' WHERE datavenc= '28/03/2018';
+	when final_placa = 2 then UPDATE licenciamento SET datavenc = '30/04/2019' WHERE datavenc= '30/0/2018';
+	when final_placa = 3 then UPDATE licenciamento SET datavenc = '30/05/2019' WHERE datavenc= '30/05/2018';
+	when final_placa = 4 then UPDATE licenciamento SET datavenc = '29/06/2019' WHERE datavenc= '29/06/2018';
+	when final_placa = 5 then UPDATE licenciamento SET datavenc = '31/07/2019' WHERE datavenc= '31/07/2018';
+	when final_placa = 6 then UPDATE licenciamento SET datavenc = '31/08/2019' WHERE datavenc= '31/08/2018';
+	when final_placa = 7 then UPDATE licenciamento SET datavenc = '28/09/2019' WHERE datavenc= '28/09/2018';
 	when final_placa = 8 then UPDATE licenciamento SET datavenc = '31/10/2019' WHERE datavenc= '31/10/2018';
 	when final_placa = 9 then UPDATE licenciamento SET datavenc = '30/11/2019' WHERE datavenc= '30/11/2018';
 	when final_placa = 0 then UPDATE licenciamento SET datavenc = '28/12/2019' WHERE datavenc= '28/12/2018';
+
 
 	
 End Case;
