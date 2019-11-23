@@ -27,4 +27,13 @@ CREATE VIEW  veiculos_proprietarios AS
 );
 
 
+----------------- Visão 3: tabela que apresente o número de infrações e valores em multas registrados por ano e mês.-----------------
 
+			/*em andamento*/
+
+CREATE VIEW infracoes_valores AS 
+( 
+	SELECT date_part('year',datainfracao) Ano, date_part('month',datainfracao) Mês, COUNT(idinfracao) Num_infracoes, sum(valor) Valores_multas
+	FROM multa
+	GROUP BY date_part('year',datainfracao),date_part('month',datainfracao), idinfracao
+);
