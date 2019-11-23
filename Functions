@@ -142,29 +142,42 @@ End Case;
 End Loop;
 End$$;
 
-#################### Função que retorna uma tabela  com  o histórico de transação através do renavam do veículo ####################
+#################### Função que retorna uma tabela  com  o histórico de transação através do renavam do veículo ####################	
 			
-							--- Em andamento -----
-CREATE OR REPLACE FUNCTION historico (renavam_ CHAR)
+CREATE OR REPLACE FUNCTION Historico (_renavam CHAR)
 	RETURNS TABLE (
-		_renavam char(13),
-		_idproprietario int, -- só pra teste 
-		_ano int,
-		_nome varchar(50),
-		_dataCompra date,
-		_dataVenda date
-		)
+	Renavam_ char(13),
+        Modelo_  varchar(100),
+        Marca_   varchar(40),
+	Ano_ int,
+	Proprietario_ varchar(50),
+	DataCompra_ date,
+	DataVenda_ date
+	)
 AS $$
 BEGIN
-  RETURN QUERY
-	SELECT ve.renavam,t.idproprietario,ve.ano,con.nome,t.datacompra,t.datavenda
-	FROM transferencia t  join 
-	veiculo ve on t.renavam = ve.renavam join condutor con on
-	t.idproprietario = con.idcadastro
-	WHERE ve.renavam = renavam_;
+    if exists (SELECT renavam from transferencia  WHERE renavam = _renavam) then
+	return query	
+		SELECT t.renavam,mod.denominacao ,ma.nome ,ve.ano,con.nome ,t.datacompra,t.datavenda
+		FROM transferencia t  join
+		veiculo ve on t.renavam = ve.renavam join condutor con on
+		t.idproprietario = con.idcadastro join modelo mod on 
+		ve.idmodelo = mod.idmodelo join marca ma on mod.idmarca = ma.idmarca
+		WHERE ve.renavam = _renavam;
+
+    else
+	return query
+		select vei.renavam, mode.denominacao,mar.nome, vei.ano, cond.nome, vei.datacadastro, vei.dataaquisicao
+		from veiculo vei join condutor cond
+		on vei.idproprietario = cond.idcadastro join modelo mode on vei.idmodelo = mode.idmodelo join marca mar on mode.idmarca = mar.idmarca
+		WHERE vei.renavam = _renavam
+	-- 		OU
+	--  	Raise Notice 'Sem historico de transação';
+    end if;
+	
 END; $$
 LANGUAGE 'plpgsql';
-select * from historico('48589113474  ')
 
+-- Testando
 
-
+SELECT * FROM Historico('54508013274');
