@@ -1,4 +1,5 @@
------------------------------ Visão 1: tabela que indica a relação de condutores com pontos na carteira ----------------------------- 
+
+-------------------------- Visão 1: tabela que indica a relação de condutores com pontos na carteira --------------------------
 
                                         /* Falta testar */
 CREATE VIEW condutor_pontosCnh AS
