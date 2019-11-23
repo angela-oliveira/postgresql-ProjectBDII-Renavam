@@ -11,3 +11,20 @@ CREATE VIEW condutor_pontosCnh AS
     on mult.idinfracao = infra.idinfracao
     GROUP BY date_part('year',mult.datainfracao), con.idcadastro
 );
+
+
+---------------------------- Visão 2: tabela que apresenta a relação dos veiculos/proprietários ---------------------------------
+
+CREATE VIEW  veiculos_proprietarios AS
+( 
+	 SELECT vei.renavam, vei.placa, con.nome as Proprietario,
+	 mod.denominacao Modelo, mar.nome as Marca, cid.nome as cidade, cid.id_uf as Estado, ti.descricao as Tipo
+	 from veiculo vei join condutor con on vei.idproprietario
+	 = con.idcadastro join modelo mod on vei.idmodelo = mod.idmodelo
+	 join cidade cid on vei.idcidade = cid.idcidade
+	 join marca mar on mod.idmarca = mar.idmarca join tipo ti
+	 on mod.idtipo = ti.idtipo
+);
+
+
+
