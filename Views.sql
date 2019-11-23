@@ -29,7 +29,7 @@ CREATE VIEW  veiculos_proprietarios AS
 
 -------------------------- Visão 3: tabela que apresente o número de infrações e valores em multas registrados por ano e mês.------------
 
-			/*em andamento*/
+			/*em andamento e falta testar*/
 
 CREATE VIEW infracoes_valores AS 
 ( 
