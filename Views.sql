@@ -1,6 +1,6 @@
-################# Visão 1: tabela que indica a relação de condutores com pontos na carteira ################# 
+----------------------------- Visão 1: tabela que indica a relação de condutores com pontos na carteira ----------------------------- 
 
-                                        --- Falta testar ----
+                                        /* Falta testar */
 CREATE VIEW condutor_pontosCnh AS
     ( SELECT con.idcadastro,con.nome as Condutor, 
     con.idcategoriacnh, date_part('year',mult.datainfracao)
