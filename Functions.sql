@@ -1,4 +1,4 @@
-######################## Função para o calculo renavam ########################
+------------------------- Função para o calculo renavam -------------------------
 
 CREATE OR REPLACE FUNCTION calculo_renavam()
 RETURNS char(13)
@@ -29,8 +29,9 @@ END; $$
 
 LANGUAGE plpgsql;
 
+
 	
-############### Função que retorna  trigger para fazer Transferência de Propriedade ###############
+----------------------- Função que retorna  trigger para fazer Transferência de Propriedade -----------------------
 		
 CREATE OR REPLACE FUNCTION TransferenciaPropriedade()
 RETURNS TRIGGER AS $$
@@ -56,20 +57,14 @@ where renavam = '44129834981'
 
 
 
-############### DADA VENCIMENTO NA TABELA LICENCIAMENTO ###############
+--------------------------- DADA VENCIMENTO NA TABELA LICENCIAMENTO --------------------------- 
 
---OBS:.
-
-----ANTES DE RODAR A FUNÇÃO DATA_VENCIMENTO,FAÇA UM TRUNCATE NA TABELA licencimento,POIS ALGUNS DADOS FORAM ALTERADOS. 
-
--- PARA APAGAR OS INSERTES : TRUNCATE TABLE licenciamento
-
--- PARA APAGAR A FUNÇÃO: DROP FUNCTION [NOME]
-
----EM SEGUIDA: GERE NOVOS DADOS COM A FUNÇÃO INSERT_LICEN() 
-
---DEPOIS RODE A FUNÇÃO DATA_VENCIMNETO()
-
+/*OBS:.*/
+/* ANTES DE RODAR A FUNÇÃO DATA_VENCIMENTO,FAÇA UM TRUNCATE NA TABELA licencimento,POIS ALGUNS DADOS FORAM ALTERADOS.*/
+/* PARA APAGAR OS INSERTES : TRUNCATE TABLE licenciamento*/
+/* PARA APAGAR A FUNÇÃO: DROP FUNCTION [NOME]*/
+/* EM SEGUIDA: GERE NOVOS DADOS COM A FUNÇÃO INSERT_LICEN() */
+/* DEPOIS RODE A FUNÇÃO DATA_VENCIMNETO()*/
 
 CREATE OR REPLACE function INSERT_lICEN()
 returns void
@@ -102,11 +97,14 @@ End Case;
 End Loop;
 End$$;
 
---SELECT INSERT_lICEN()
+/*SELECT INSERT_lICEN()*/
+
+
 
 
 ---------------------------FUNCTION OFICIAL DA TABELA LICENCIAMENTO--------------------------------------------
-----ATUALIZAÇÃO DA DATA DE VENCIMENTO
+
+/*ATUALIZAÇÃO DA DATA DE VENCIMENTO*/
 
 
 CREATE OR REPLACE function DATA_VENCIMENTO()
@@ -142,7 +140,9 @@ End Case;
 End Loop;
 End$$;
 
-#################### Função que retorna uma tabela  com  o histórico de transação através do renavam do veículo ####################	
+
+
+------------------- Função que retorna uma tabela  com  o histórico de transação através do renavam do veículo ------------------- 
 			
 CREATE OR REPLACE FUNCTION Historico (_renavam CHAR)
 	RETURNS TABLE (
@@ -171,13 +171,13 @@ BEGIN
 		from veiculo vei join condutor cond
 		on vei.idproprietario = cond.idcadastro join modelo mode on vei.idmodelo = mode.idmodelo join marca mar on mode.idmarca = mar.idmarca
 		WHERE vei.renavam = _renavam
-	-- 		OU
-	--  	Raise Notice 'Sem historico de transação';
+	 		/*OU*/
+	  	/*Raise Notice 'Sem historico de transação';*/
     end if;
 	
 END; $$
 LANGUAGE 'plpgsql';
 
--- Testando
+/*Testando*/
 
 SELECT * FROM Historico('54508013274');
