@@ -646,7 +646,7 @@ VALUES (59769661247 ,'BENILDO FERNANDES DE AZEVEDO JUNIOR','19-10-1978', 'E','PB
 ---- -----TABELA MARCA ----------
 
 insert into marca (nome,origem) values ('Volkswagen','Alemanha');
-insert into marca (nome,origem) values ('Toyota','Japão');
+insert into marca (nome,origem) values ('Honda','Japão');
 insert into marca (nome,origem) values ('Renault- Nissan','Rússia');
 insert into marca (nome,origem) values ('General Motors','Estados Unidos');
 insert into marca (nome,origem) values ('Hyundai-Kia','Coreia do Su');
@@ -674,7 +674,7 @@ insert into tipo (descricao) values ('caminhão');
 
 insert into modelo (denominacao,idMarca,idTipo) values ('O Volkswagen Gol foi lançado na década de 80',1,1);
 
-insert into modelo (denominacao,idMarca,idTipo) values ('Toyota Corolla é um modelo compacto da Toyota oferecido em versões sedan, hatchback e perua',2,2);
+insert into modelo (denominacao,idMarca,idTipo) values ('Honda a CG 160 Titan um modelo compacto a modernidade é só um dos elogios que a CG 160 Titan merece.',2,2);
 
 insert into modelo (denominacao,idMarca,idTipo) values ('Sandero é o modelo da Renault mais vendido no mercado brasileiro de automóveis.',3,3);
 
