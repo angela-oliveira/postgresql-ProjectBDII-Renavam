@@ -170,7 +170,7 @@ BEGIN
 		select vei.renavam, mode.denominacao,mar.nome, vei.ano, cond.nome, vei.datacadastro, vei.dataaquisicao
 		from veiculo vei join condutor cond
 		on vei.idproprietario = cond.idcadastro join modelo mode on vei.idmodelo = mode.idmodelo join marca mar on mode.idmarca = mar.idmarca
-		WHERE vei.renavam = _renavam
+		WHERE vei.renavam = _renavam;
 	 		/*OU*/
 	  	/*Raise Notice 'Sem historico de transação';*/
     end if;
