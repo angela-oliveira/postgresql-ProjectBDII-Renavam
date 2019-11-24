@@ -188,20 +188,24 @@ SELECT * FROM Historico('54508013274');
 CREATE OR REPLACE FUNCTION vencimento_multa()
 RETURNS date
 AS $$
+
 DECLARE
-	data_venci date := (select datainfracao + INTERVAL' 8 days' from  multa);
+-- 	data_ date := CAST('2019-09-01' AS DATE);
+	data_venci date := (select  datainfracao  + INTERVAL' 40 days' from  multa);
 		
 BEGIN
-	if  extract(dow from date 'data_venci') = 0 then /*Domingo*/
-		data_venci := data_venci + 1; 
-		
-	elsif extract(dow from date 'data_venci') = 6 then /*Sábado*/
-			data_venci  := data_venci + 2; 
-	
-		
-end if;		
+	CASE date_part('dow',data_venci)
+		WHEN 0 THEN
+			data_venci := data_venci +1; 
+			RAISE NOTICE 'Domingo';
+			return data_venci;
+		WHEN 6 THEN
+			data_venci := data_venci +2; 
+			RAISE NOTICE 'Sábado';
+			return data_venci;
 
+		ELSE
+			return data_venci;
+END CASE;
 END; $$
 LANGUAGE plpgsql;
-
-
