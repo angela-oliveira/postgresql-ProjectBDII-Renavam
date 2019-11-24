@@ -181,3 +181,27 @@ LANGUAGE 'plpgsql';
 /*Testando*/
 
 SELECT * FROM Historico('54508013274');
+
+
+-----------------------Função para data de vencimento da multa ----------------------
+			/*Incompleta*/
+CREATE OR REPLACE FUNCTION vencimento_multa()
+RETURNS date
+AS $$
+DECLARE
+	data_venci date := (select datainfracao + INTERVAL' 8 days' from  multa);
+		
+BEGIN
+	if  extract(dow from date 'data_venci') = 0 then /*Domingo*/
+		data_venci := data_venci + 1; 
+		
+	elsif extract(dow from date 'data_venci') = 6 then /*Sábado*/
+			data_venci  := data_venci + 2; 
+	
+		
+end if;		
+
+END; $$
+LANGUAGE plpgsql;
+
+
