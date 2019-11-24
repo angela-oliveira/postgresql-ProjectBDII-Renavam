@@ -209,3 +209,47 @@ BEGIN
 END CASE;
 END; $$
 LANGUAGE plpgsql;
+
+
+
+
+
+-------------------------------------------------FUNÇÃO SUSPENSAO CNH--------------------------------------------------------
+
+ ---NÃO FOI TESTADA
+ ---ESSA LÓGICA É SÓ PRA TER UMA NOÇÃO DO QUE PODE SER FEITO,PROVAVELMENTE SERÁ REFEITA ESSA FUNÇÃO.
+
+
+CREATE OR REPLACE FUNCTION SUSPENSAO_CNH(MULTA_PLACA FLOAT ) RETURNS INTEGER
+
+DECLARE 
+MULTA_PLACA FLOAT  := 0;
+BEGIN 
+
+CURSOR_PONTOS CURSOR for select * from MULTA M join CONDUTOR C
+ on C.IDCADASTRO = M.IDMULTA 
+ JOIN INFRACAO I
+ ON  M.IDINFRACAO = I.IDINFRACAO;
+			
+Begin 
+For SUSPENSAO in CURSOR_PONTOS LOOP
+
+        IF CURSOR_PONTOS.INFRACAO = 20 THEN (SELECT datainfracao, idmulta FROM multa
+	WHERE CURSOR_PONTOS.datainfracao BETWEEN '2019-01-01' AND '2020-01-10'
+	GROUP BY idmulta HAVING idcondutor = idcondutor ORDER BY idmulta,datainfracao);
+	raise notice 'excesso de pontos';
+
+           IF SUSPENSAO.pontos = 3 then
+               raise notice 'Infração leve',
+             IF SUSPENSAO.pontos = 4 then
+               raise notice 'Infração médias',  
+              ELSE IF SUSPENSAO.pontos = 5 then,
+                 raise notice 'Infrações graves',
+                 ELSE SUSPENSAO.pontos = 7 then,
+                    raise notice 'infrações gravíssimas';
+             END IF;
+           END IF;
+         END IF;
+      
+End Loop;
+
