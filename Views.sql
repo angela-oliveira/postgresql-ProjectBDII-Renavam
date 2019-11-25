@@ -5,7 +5,7 @@
 CREATE VIEW condutor_pontosCnh AS
     ( SELECT con.idcadastro,con.nome as Condutor, 
     con.idcategoriacnh, date_part('year',mult.datainfracao)
-    as ano, sum(infra.pontos)
+    as ano, sum(infra.pontos) as Total_infração
     FROM condutor con  JOIN multa mult
     ON con.idcadastro = mult.idcondutor  join infracao infra
     on mult.idinfracao = infra.idinfracao
