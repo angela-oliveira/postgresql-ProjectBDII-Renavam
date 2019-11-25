@@ -759,6 +759,22 @@ insert into veiculo (select calculo_renavam(),'HAG4375',2017,8,8,2,8,'11/07/2018
 insert into veiculo (select calculo_renavam(),'JAH4510',2015,9,9,3,9,'19/05/2017','19/05/2017',26000,'R');
 insert into veiculo (select calculo_renavam(),'KQL4562',2013,10,10,1,10,'30/01/2014','30/01/2014',21000,'R');
 
+
+
+---------------------------------      TABELA INFRAÇÃO SÓ PRA TESTE    ---------------------------------
+
+insert into infracao (descricao,valor,pontos) values ('Dirigir veículo sem possuir CNH', 880.41, 7);
+insert into infracao (descricao,valor,pontos) values ('Dirigir veículo com CNH cassada', 1467.35, 7);
+insert into infracao (descricao,valor,pontos) values ('Dirigir com CNH de categoria errada', 880.41, 7);
+insert into infracao (descricao,valor,pontos) values ('Dirigir com CNH vencida + 30 dias', 293.47,7);
+insert into infracao (descricao,valor,pontos) values ('Dirigir sem usar lentes corretoras de visão', 293.47,7);
+
+
+
+
+
+
+
 ---------------------------------      TABELA MULTA SÓ PRA TESTE    ---------------------------------
 
 
