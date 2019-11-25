@@ -218,13 +218,13 @@ LANGUAGE plpgsql;
 
  ---NÃO FOI TESTADA
  ---ESSA LÓGICA É SÓ PRA TER UMA NOÇÃO DO QUE PODE SER FEITO,PROVAVELMENTE SERÁ REFEITA ESSA FUNÇÃO.
-
-
-CREATE OR REPLACE FUNCTION SUSPENSAO_CNH(MULTA_PLACA FLOAT ) RETURNS INTEGER
-
+CREATE OR REPLACE FUNCTION SUSPENSAO_CNH() 
+RETURNS INTEGER
+LANGUAGE plpgsql 
+AS $$
 DECLARE 
 MULTA_PLACA FLOAT  := 0;
-BEGIN 
+
 
 CURSOR_PONTOS CURSOR for select * from MULTA M join CONDUTOR C
  on C.IDCADASTRO = M.IDMULTA 
@@ -234,22 +234,30 @@ CURSOR_PONTOS CURSOR for select * from MULTA M join CONDUTOR C
 Begin 
 For SUSPENSAO in CURSOR_PONTOS LOOP
 
-        IF CURSOR_PONTOS.INFRACAO = 20 THEN (SELECT datainfracao, idmulta FROM multa
+	IF SUSPENSAO  THEN SELECT M.datainfracao, M.idmulta,I.PONTOS,I.DESCRICAO FROM multa M JOIN INFRACAO I ON M.IDINFRACAO = I.IDINFRACAO
 	WHERE CURSOR_PONTOS.datainfracao BETWEEN '2019-01-01' AND '2020-01-10'
-	GROUP BY idmulta HAVING idcondutor = idcondutor ORDER BY idmulta,datainfracao);
+	GROUP BY M.idmulta,I.PONTOS,I.DESCRICAO HAVING idcondutor = idcondutor ORDER BY idmulta,datainfracao;
 	raise notice 'excesso de pontos';
 
-           IF SUSPENSAO.pontos = 3 then
-               raise notice 'Infração leve',
-             IF SUSPENSAO.pontos = 4 then
-               raise notice 'Infração médias',  
-              ELSE IF SUSPENSAO.pontos = 5 then,
-                 raise notice 'Infrações graves',
-                 ELSE SUSPENSAO.pontos = 7 then,
-                    raise notice 'infrações gravíssimas';
-             END IF;
-           END IF;
-         END IF;
-      
-End Loop;
+	IF SUSPENSAO.PONTOS = 20 THEN 
+	RAISE NOTICE 'UM ANO SEM DIRIGIR';
+	IF SUSPENSAO.pontos = 3 then
+	raise notice 'Infração leve';
+	
+	IF SUSPENSAO.pontos = 4 then
+	raise notice 'Infração médias';
+	IF  SUSPENSAO.pontos = 5 then
+	raise notice 'Infrações graves';
 
+	IF SUSPENSAO.pontos = 7 then
+	raise notice 'infrações gravíssimas';
+
+	
+	END IF;
+		END IF;
+			END IF;
+				END IF;
+					END IF;	
+					   END IF;
+End LOOP;
+End$$;
