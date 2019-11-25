@@ -759,6 +759,18 @@ insert into veiculo (select calculo_renavam(),'HAG4375',2017,8,8,2,8,'11/07/2018
 insert into veiculo (select calculo_renavam(),'JAH4510',2015,9,9,3,9,'19/05/2017','19/05/2017',26000,'R');
 insert into veiculo (select calculo_renavam(),'KQL4562',2013,10,10,1,10,'30/01/2014','30/01/2014',21000,'R');
 
+---------------------------------      TABELA MULTA SÓ PRA TESTE    ---------------------------------
+
+
+insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,valor,juros,valorFinal,pago) values  ('72301082372',5,2,'02/05/2019',(select date  '02/05/2019' + 40),1467.35,0,1467.35,'S');
+insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,valor,juros,valorFinal,pago) values  ('96088771622',1,3,'22/07/2019',(select date  '22/07/2019' + 40),880.41,0,880.41,'N');
+insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,valor,juros,valorFinal,pago) values  ('427770328610',7,4,'21/05/2019',(select date  '21/05/2019' + 40),880.41,0,880.41,'S');
+insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,valor,juros,valorFinal,pago) values  ('16840892078',8,3,'11/09/2019',(select date  '11/09/2019' + 40),293.47,0,293.47,'S');
+insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,valor,juros,valorFinal,pago) values  ('92747514471 ',6,6,'23/07/2019',(select date  '23/07/2019' + 40),1467.35,0,1467.35,'S');
+insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,valor,juros,valorFinal,pago) values  ('68934054354',7,7,'13/09/2019',(select date  '13/09/2019' + 40),293.47,0,293.47,'N');
+insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,valor,juros,valorFinal,pago) values  ('68934054354',7,7,'12/06/2018',(select date  '12/06/2018' + 40),293.47,0,293.47,'N');
+insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,valor,juros,valorFinal,pago) values  ('68934054354',7,7,'03/12/2018',(select date  '03/12/2018' + 40),293.47,0,293.47,'N');
+
 
 
 
