@@ -1,7 +1,7 @@
 
 -------------------------- Visão 1: tabela que indica a relação de condutores com pontos na carteira --------------------------
 
-                                        /* Falta testar */
+
 CREATE VIEW condutor_pontosCnh AS
     ( SELECT con.idcadastro,con.nome as Condutor, 
     con.idcategoriacnh, date_part('year',mult.datainfracao)
@@ -29,14 +29,13 @@ CREATE VIEW  veiculos_proprietarios AS
 
 -------------------------- Visão 3: tabela que apresente o número de infrações e valores em multas registrados por ano e mês.------------
 
-			/*em andamento e falta testar*/
 
 CREATE VIEW infracoes_valores AS 
 ( 
 	SELECT date_part('year',datainfracao) Ano, date_part('month',datainfracao) Mês, COUNT(idinfracao) Num_infracoes, 
 	sum(valor) Valores_multas
 	FROM multa
-	GROUP BY date_part('year',datainfracao),date_part('month',datainfracao), idinfracao
+	GROUP BY date_part('year',datainfracao),date_part('month',datainfracao)
 );
 
 
