@@ -216,8 +216,7 @@ LANGUAGE plpgsql;
 
 -------------------------------------------------FUNÇÃO SUSPENSAO CNH--------------------------------------------------------
 
- --- FOI TESTADA,
- ---FICA INDICANDO PRA USAR PARÂMETROS DA FUNÇÃO MULTA_PLACA
+ --- FOI TESTADA
  ---ESSA LÓGICA É SÓ PRA TER UMA NOÇÃO DO QUE PODE SER FEITO,PROVAVELMENTE SERÁ REFEITA ESSA FUNÇÃO.
  
 CREATE OR REPLACE FUNCTION SUSPENSAO_CNH(PONTOSS FLOAT) 
