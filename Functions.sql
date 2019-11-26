@@ -217,7 +217,7 @@ LANGUAGE plpgsql;
 -------------------------------------------------FUNÇÃO SUSPENSAO CNH--------------------------------------------------------
 
  --- FOI TESTADA
- ---ESSA LÓGICA É SÓ PRA TER UMA NOÇÃO DO QUE PODE SER FEITO,PROVAVELMENTE SERÁ REFEITA ESSA FUNÇÃO.
+ ---ESSA LÓGICA É SÓ PRA TER UMA NOÇÃO DO QUE PODE SER FEITO,PROVAVELMENTE SERÁ REFEITA.
 
  ---QUANDO FIZER O TESTE VERIFICAR EM 'MENSAGENS'
  
