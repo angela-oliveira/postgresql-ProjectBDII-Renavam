@@ -263,3 +263,77 @@ End$$;
 --SELECT * FROM INFRACAO
 --SELECT * FROM MULTA
 --SELECT * FROM LICENCIAMENTO
+
+
+
+------------------------------------------ Função teste SUSPENÇÃO DA CNH ------------------------------------------
+
+CREATE OR REPLACE FUNCTION suspensa()
+RETURNS TRIGGER AS $$
+declare
+
+	rec_film   RECORD;
+	
+	CURSOR_PONTOS CURSOR for SELECT  con.idcadastro as Condutor,sum(infra.pontos) as Total_infracao
+    FROM condutor con  JOIN multa mult
+    ON con.idcadastro = mult.idcondutor  join infracao infra
+    on mult.idinfracao = infra.idinfracao
+    GROUP BY date_part('year',mult.datainfracao),con.idcadastro
+	having sum(infra.pontos) >= 20;
+	
+begin
+	OPEN CURSOR_PONTOS;
+	
+	
+   
+   LOOP
+    -- fetch row into the film
+      FETCH CURSOR_PONTOS INTO rec_film ;
+    -- exit when no more row to fetch
+      EXIT WHEN NOT FOUND;
+	
+		update condutor
+		set situacaocnh = 'S'
+		where idcadastro = rec_film.Condutor ;
+
+		    
+   END LOOP;
+  
+   -- Close the cursor
+   
+   CLOSE CURSOR_PONTOS;
+   return rec_film.condutor;
+
+END; $$
+LANGUAGE plpgsql;
+
+CREATE TRIGGER suspencao
+AFTER
+insert ON multa
+FOR EACH ROW
+EXECUTE PROCEDURE suspensa();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
