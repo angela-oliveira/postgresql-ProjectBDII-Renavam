@@ -266,7 +266,9 @@ End$$;
 
 
 
------------------------------------------- Função teste SUSPENÇÃO DA CNH ------------------------------------------
+------------------------------------------ Função teste SUSPENÇÃO DA CNH POR ANO -------------------------------
+
+			/*(ESTÁ ERRADA POIS É DE 12 MESES*/
 
 CREATE OR REPLACE FUNCTION suspensa()
 RETURNS TRIGGER AS $$
@@ -315,6 +317,59 @@ EXECUTE PROCEDURE suspensa();
 
 
 
+----------------------------------  Função teste SUSPENÇÃO DA CNH POR 12 MESES DA DATA ---------------------------
+
+			/* EM ANDAMENTO*/
+
+
+CREATE OR REPLACE FUNCTION suspensa()
+RETURNS TRIGGER AS $$
+declare
+
+    rec_film   RECORD;
+    CURSOR_PONTOS CURSOR for SELECT mult.datainfracao as data_infracao, con.idcadastro as Condutor,infra.pontos as pontos
+    FROM condutor con  JOIN multa mult
+    ON con.idcadastro = mult.idcondutor  join infracao infra
+    on mult.idinfracao = infra.idinfracao
+    GROUP BY mult.datainfracao,con.idcadastro,infra.pontos;
+-- 	having sum(infra.pontos) >= 20;
+	cont int := 0;
+begin
+	OPEN CURSOR_PONTOS;
+
+	  
+   LOOP
+    -- fetch row into the film
+      FETCH CURSOR_PONTOS INTO rec_film ;
+    -- exit when no more row to fetch
+      EXIT WHEN NOT FOUND;
+		
+	  if new.idcondutor  = rec_film.condutor then
+	  	if new.datainfracao between rec_film.data_infracao and rec_film.data_infracao + 366 or rec_film.data_infracao
+		between new.datainfracao and new.datainfracao + 366 then
+			cont := cont + rec_film.pontos;
+		end if;
+	  end if;
+	  if cont >= 20 then
+		update condutor
+		set situacaocnh = 'S'
+		where idcadastro = rec_film.Condutor ;
+	  end if;
+		    
+   END LOOP;
+   return rec_film.condutor ;
+   -- Close the cursor
+   CLOSE CURSOR_PONTOS;
+   
+
+END; $$
+LANGUAGE plpgsql;
+
+CREATE TRIGGER suspencao
+AFTER
+insert ON multa
+FOR EACH ROW
+EXECUTE PROCEDURE suspensa();
 
 
 
