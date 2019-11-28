@@ -211,6 +211,49 @@ END; $$
 LANGUAGE plpgsql;
 
 
+----------------Outro teste do mesmo requesito
+
+CREATE OR REPLACE FUNCTION vencimento_multa1()
+RETURNS trigger
+AS $$
+
+DECLARE
+-- 	data_ date := CAST('2019-09-01' AS DATE);
+	data_venci date := (select  new.datainfracao  + INTERVAL' 40 days' from  multa);
+		
+BEGIN
+	CASE date_part('dow',data_venci)
+		WHEN 0 THEN
+			data_venci := data_venci +1; 
+			RAISE NOTICE 'Domingo';
+			update multa
+			set datavencimento = data_venci
+			where datavencimento = new.datainfracao;    
+		WHEN 6 THEN
+			data_venci := data_venci +2; 
+			RAISE NOTICE 'Sábado';
+			update multa
+			set datavencimento = data_venci
+			where datavencimento = new.datainfracao;
+
+		ELSE
+			raise NOTICE 'Erro';
+END CASE;
+END; $$
+LANGUAGE plpgsql;
+CREATE TRIGGER vencimento
+AFTER
+insert ON multa
+FOR EACH ROW
+EXECUTE PROCEDURE vencimento_multa1();
+
+select * from categoria_cnh
+
+
+insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,valor,juros,valorFinal,pago) values  ('29471668360',5,2,'02/05/2019','01/12/2019',1467.35,0,1467.35,'S');
+
+
+
 ------------------------------------------------------FUNÇÃO EM TESTE----------------------------------------------------
 ------------TEM ERROS 
 
