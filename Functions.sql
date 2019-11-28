@@ -211,6 +211,66 @@ END; $$
 LANGUAGE plpgsql;
 
 
+------------------------------------------------------FUNÇÃO EM TESTE----------------------------------------------------
+------------TEM ERROS 
+
+
+CREATE OR REPLACE FUNCTION vencimento_multa()
+RETURNS date
+LANGUAGE plpgsql 
+AS $$
+
+DECLARE
+linhas integer :=1 ;
+data_venci date ; 
+
+-- 	data_ date := CAST('2019-09-01' AS DATE);
+
+	CURSOR_PONTOS CURSOR for select I.idinfracao ,Sum(pontos)* 0.01  as TotalPontos from MULTA M join CONDUTOR C
+		on C.IDCADASTRO = M.IDMULTA 
+		JOIN INFRACAO I
+		ON  M.IDINFRACAO = I.IDINFRACAO
+	
+		GROUP BY I.idinfracao ;
+	
+		
+		
+BEGIN
+
+For SUSPENSAO in CURSOR_PONTOS LOOP
+
+     IF EXISTS( SELECT M.datainfracao, M.idmulta,I.PONTOS,I.DESCRICAO FROM multa M JOIN INFRACAO I ON M.IDINFRACAO = I.IDINFRACAO
+         where  data_venci = (select  datainfracao  + INTERVAL' 40 days' from  multa  as infrac
+	GROUP BY datainfracao ,idmulta,PONTOS,DESCRICAO HAVING idcondutor = idcondutor ORDER BY idmulta,datainfracao) )THEN 
+
+
+	CASE date_part('dow',data_venci)
+		WHEN 0 THEN
+			data_venci := data_venci +1;
+			RAISE NOTICE 'Domingo';
+			return data_venci;
+		WHEN 6 THEN
+			data_venci := data_venci +2;
+			RAISE NOTICE 'Sábado';
+			return data_venci;
+
+		ELSE
+			return data_venci;
+			
+
+
+	END CASE;
+     END IF; 
+end loop;
+  END$$;
+
+--DROP FUNCTION vencimento_multa()
+--select vencimento_multa()
+
+--select * from veiculo
+--select * from multa
+--select * from infracao
+
 
 
 
