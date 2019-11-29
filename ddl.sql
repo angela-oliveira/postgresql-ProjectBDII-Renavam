@@ -79,7 +79,7 @@ CONSTRAINT FK_tipo_modelo FOREIGN KEY (idTipo) REFERENCES tipo(idTipo)
 
 CREATE TABLE infracao(
 idInfracao serial NOT NULL,
-descricao varchar(40) NOT NULL,
+descricao varchar(100) NOT NULL,
 valor numeric NOT NULL,
 pontos integer NOT NULL,
 
