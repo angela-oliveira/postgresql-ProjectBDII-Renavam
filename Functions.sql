@@ -211,7 +211,7 @@ END CASE;
 END; $$
 LANGUAGE plpgsql;
 
-----------------Outro teste do mesmo requesito
+----------------Outro teste RETORNANDO TRIGGER
 
 CREATE OR REPLACE FUNCTION vencimento_multa1()
 RETURNS trigger
