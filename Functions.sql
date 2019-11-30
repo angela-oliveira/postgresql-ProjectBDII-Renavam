@@ -49,7 +49,7 @@ UPDATE ON veiculo
 FOR EACH ROW
 EXECUTE PROCEDURE TransferenciaPropriedade();
 
-
+/* TESTENADO*/
 update veiculo
 set idproprietario = 3, dataaquisicao = '11/06/2019'
 where renavam = '44129834981'
@@ -211,7 +211,7 @@ END CASE;
 END; $$
 LANGUAGE plpgsql;
 
-----------------Outro teste RETORNANDO TRIGGER
+----------------Outro teste RETORNANDO TRIGGER SEM USO
 
 CREATE OR REPLACE FUNCTION vencimento_multa1()
 RETURNS trigger
@@ -247,16 +247,14 @@ insert ON multa
 FOR EACH ROW
 EXECUTE PROCEDURE vencimento_multa1();
 
-select * from categoria_cnh
-
-
+/*TESTEANDO*/
 insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,valor,juros,valorFinal,pago) values  ('29471668360',5,2,'02/05/2019','01/12/2019',1467.35,0,1467.35,'S');
 
 
 
 
 
--------------------------------------------------FUNÇÃO SUSPENSAO CNH--------------------------------------------------------
+-------------------------------------------------FUNÇÃO SUSPENSAO CNH (HELENA)--------------------------------------------------------
 
  --- FOI TESTADA
  ---ESSA LÓGICA É SÓ PRA TER UMA NOÇÃO DO QUE PODE SER FEITO,PROVAVELMENTE SERÁ REFEITA.
@@ -318,7 +316,7 @@ declare
 
 	rec_film   RECORD;
 	
-	CURSOR_PONTOS CURSOR for SELECT  con.idcadastro as Condutor,sum(infra.pontos) as Total_infracao
+    CURSOR_PONTOS CURSOR for SELECT  con.idcadastro as Condutor,sum(infra.pontos) as Total_infracao
     FROM condutor con  JOIN multa mult
     ON con.idcadastro = mult.idcondutor  join infracao infra
     on mult.idinfracao = infra.idinfracao
@@ -488,8 +486,10 @@ EXECUTE PROCEDURE suspensa();
 
 
 
------------------------- procedure para acrescentar juros ------------------
-
+------------------------ PROCEDUURE  PARA  ACRESCENTAR JUROS ------------------
+			  
+			  /*ERRADA*/
+			  
 CREATE OR REPLACE PROCEDURE juros_(dataPaga date)
 LANGUAGE plpgsql
 AS $$
@@ -536,12 +536,50 @@ begin
 END $$;
 
 
+----------- FUNÇÃO QUE RETORNA TRIGGER PARA ACRESCENTAR JUROS CASO A DATA DE PAGAMENTO SEJA MAIOR QUE DATA DE VENCIMENTO----------------
 
 
+CREATE OR REPLACE FUNCTION juros__()
+RETURNS trigger
+AS $$
 
+DECLARE 
+	rec_juros   RECORD;
+	dias_juros int;
+	calculo_juros float;
+		
+BEGIN
+		if new.datapagamento <= new.datavencimento then
+			update multa
+			set pago = 'S'
+			where datapagamento = new.datapagamento;
+-- 			raise notice 'Pagamento efetuado dentro da data';
+			return new;
+				
 
+	 	else
+		 	IF (TG_OP='INSERT') then
+				dias_juros := new.datapagamento - new.datavencimento;
+			
+			elsif (TG_OP='UPDATE') then
+				dias_juros := new.datapagamento - OLD.datavencimento;
+			end if;
+				
+			calculo_juros := dias_juros * 0.01;
+			update multa
+			set juros = calculo_juros, valorfinal =  new.valor + calculo_juros, pago = 'S'
+			where datapagamento = new.datapagamento;
+-- 			raise notice 'Pagamento efetuado fora da data';
+			return new;
+		end if;	
 
-
+END; $$
+LANGUAGE plpgsql;
+CREATE TRIGGER juros
+AFTER 
+INSERT OR UPDATE of datapagamento ON multa
+FOR EACH ROW
+EXECUTE PROCEDURE juros__();
 
 
 
