@@ -778,14 +778,14 @@ insert into infracao (descricao,valor,pontos) values ('Dirigir sem usar lentes c
 ---------------------------------      TABELA MULTA SÓ PRA TESTE    ---------------------------------
 
 
-insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,valor,juros,valorFinal,pago) values  ('72301082372',5,2,'02/05/2019',(select date  '02/05/2019' + 40),1467.35,0,1467.35,'S');
-insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,valor,juros,valorFinal,pago) values  ('96088771622',1,3,'22/07/2019',(select date  '22/07/2019' + 40),880.41,0,880.41,'N');
-insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,valor,juros,valorFinal,pago) values  ('427770328610',7,4,'21/05/2019',(select date  '21/05/2019' + 40),880.41,0,880.41,'S');
-insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,valor,juros,valorFinal,pago) values  ('16840892078',8,3,'11/09/2019',(select date  '11/09/2019' + 40),293.47,0,293.47,'S');
-insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,valor,juros,valorFinal,pago) values  ('92747514471 ',6,6,'23/07/2019',(select date  '23/07/2019' + 40),1467.35,0,1467.35,'S');
-insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,valor,juros,valorFinal,pago) values  ('68934054354',7,7,'13/09/2019',(select date  '13/09/2019' + 40),293.47,0,293.47,'N');
-insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,valor,juros,valorFinal,pago) values  ('68934054354',7,7,'12/06/2018',(select date  '12/06/2018' + 40),293.47,0,293.47,'N');
-insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,valor,juros,valorFinal,pago) values  ('68934054354',7,7,'03/12/2018',(select date  '03/12/2018' + 40),293.47,0,293.47,'N');
+insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,valor,juros,valorFinal,pago) values  ('72301082372',5,2,'02/05/2019',(select date  '02/05/2019' + 40),1467.35,0,0,'N');
+insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,valor,juros,valorFinal,pago) values  ('96088771622',1,3,'22/07/2019',(select date  '22/07/2019' + 40),880.41,0,0,'N');
+insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,valor,juros,valorFinal,pago) values  ('427770328610',7,4,'21/05/2019',(select date  '21/05/2019' + 40),880.41,0,0,'N');
+insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,valor,juros,valorFinal,pago) values  ('16840892078',8,3,'11/09/2019',(select date  '11/09/2019' + 40),293.47,0,0,'N');
+insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,valor,juros,valorFinal,pago) values  ('92747514471 ',6,6,'23/07/2019',(select date  '23/07/2019' + 40),1467.35,0,0,'N');
+insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,valor,juros,valorFinal,pago) values  ('68934054354',7,7,'13/09/2019',(select date  '13/09/2019' + 40),293.47,0,0,'N');
+insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,valor,juros,valorFinal,pago) values  ('68934054354',7,7,'12/06/2018',(select date  '12/06/2018' + 40),293.47,0,0,'N');
+insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,valor,juros,valorFinal,pago) values  ('68934054354',7,7,'03/12/2018',(select date  '03/12/2018' + 40),293.47,0,0,'N');
 
 
 
