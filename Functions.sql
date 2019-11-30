@@ -490,7 +490,6 @@ EXECUTE PROCEDURE suspensa();
 
 ------------------------ procedure para acrescentar juros ------------------
 
-
 CREATE OR REPLACE PROCEDURE juros_(dataPaga date)
 LANGUAGE plpgsql
 AS $$
@@ -499,7 +498,7 @@ DECLARE
 	rec_juros   RECORD;
 	dias_juros int;
 	calculo_juros float;
-	juros CURSOR for SELECT  * from multa
+	juros CURSOR for SELECT  * from multa;
 	
 begin
 	OPEN juros;
@@ -514,7 +513,7 @@ begin
 		update multa
 		set pago = 'S'
 		where datapagamento = dataPaga;
-	  	raise notice 'Pagamento efetuado dentro da data'
+	  	raise notice 'Pagamento efetuado dentro da data';
 		
 	  else
 	  
@@ -523,7 +522,7 @@ begin
 		update multa
 		set juros = calculo_juros, valorfinal =  rec_juros.valor + calculo_juros, pago = 'S'
 		where datapagamento = dataPaga;
-		raise notice 'Pagamento efetuado fora da data'
+		raise notice 'Pagamento efetuado fora da data';
 	  end if;	
 	
    END LOOP;
@@ -535,10 +534,6 @@ begin
 	  
 	
 END $$;
-CALL juros_()
-
-
-
 
 
 
