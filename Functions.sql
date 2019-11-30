@@ -32,7 +32,9 @@ LANGUAGE plpgsql;
 
 	
 ----------------------- Função que retorna  trigger para fazer Transferência de Propriedade -----------------------
-		
+			
+			/*CERTA*/
+			
 CREATE OR REPLACE FUNCTION TransferenciaPropriedade()
 RETURNS TRIGGER AS $$
 BEGIN
