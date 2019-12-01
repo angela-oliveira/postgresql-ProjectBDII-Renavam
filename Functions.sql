@@ -108,41 +108,39 @@ End$$;
 
 /*ATUALIZAÇÃO DA DATA DE VENCIMENTO*/
 
-
 CREATE OR REPLACE function DATA_VENCIMENTO()
 returns void
 LANGUAGE plpgsql 
 AS $$
 
 Declare
+
 final_placa Integer;
 placas CURSOR for select * from veiculo v join licenciamento l on v.renavam = l.renavam;
-			
+		
 Begin 
 For placaa in placas LOOP
+
 select RIGHT(placaa.placa, 1) into final_placa;
-case 
 
-	when final_placa = 1 then UPDATE licenciamento SET datavenc = '28/03/2019' WHERE datavenc= placaa.datavenc;
-	when final_placa = 2 then UPDATE licenciamento SET datavenc = '30/04/2019' WHERE datavenc= placaa.datavenc;
-	when final_placa = 3 then UPDATE licenciamento SET datavenc = '30/05/2019' WHERE datavenc= placaa.datavenc;
-	when final_placa = 4 then UPDATE licenciamento SET datavenc = '29/06/2019' WHERE datavenc= placaa.datavenc;
-	when final_placa = 5 then UPDATE licenciamento SET datavenc = '31/07/2019' WHERE datavenc= placaa.datavenc;
-	when final_placa = 6 then UPDATE licenciamento SET datavenc = '31/08/2019' WHERE datavenc= placaa.datavenc;
-	when final_placa = 7 then UPDATE licenciamento SET datavenc = '28/09/2019' WHERE datavenc= placaa.datavenc;
-	when final_placa = 8 then UPDATE licenciamento SET datavenc = '31/10/2019' WHERE datavenc= placaa.datavenc;
-	when final_placa = 9 then UPDATE licenciamento SET datavenc = '30/11/2019' WHERE datavenc= placaa.datavenc;
-	when final_placa = 0 then UPDATE licenciamento SET datavenc = '28/12/2019' WHERE datavenc= placaa.datavenc;
-	else raise notice 'NÂO FINALIZADO';
+      case 
+            when final_placa = 1 then UPDATE licenciamento SET datavenc = placaa.datavenc + Interval '365 days' WHERE datavenc= placaa.datavenc;
+	    when final_placa = 2 then UPDATE licenciamento SET datavenc = placaa.datavenc + Interval '365 days' WHERE datavenc= placaa.datavenc;
+	    when final_placa = 3 then UPDATE licenciamento SET datavenc = placaa.datavenc + Interval '368 days' WHERE datavenc= placaa.datavenc;
+	    when final_placa = 4 then UPDATE licenciamento SET datavenc = placaa.datavenc + Interval '368 days' WHERE datavenc= placaa.datavenc;
+	    when final_placa = 5 then UPDATE licenciamento SET datavenc = placaa.datavenc + Interval '365 days' WHERE datavenc= placaa.datavenc;
+	    when final_placa = 6 then UPDATE licenciamento SET datavenc = placaa.datavenc + Interval '368 days' WHERE datavenc= placaa.datavenc;
+	    when final_placa = 7 then UPDATE licenciamento SET datavenc = placaa.datavenc + Interval '368 days' WHERE datavenc= placaa.datavenc;
+	    when final_placa = 8 then UPDATE licenciamento SET datavenc = placaa.datavenc + Interval '365 days' WHERE datavenc= placaa.datavenc;
+	    when final_placa = 9 then UPDATE licenciamento SET datavenc = placaa.datavenc + Interval '368 days' WHERE datavenc= placaa.datavenc;
+	    when final_placa = 0 then UPDATE licenciamento SET datavenc = placaa.datavenc + Interval '368 days' WHERE datavenc= placaa.datavenc;
+	    else raise notice 'NÂO FINALIZADO';
 
-
-COMMIT;	
-RAISE NOTICE 'ERRO';	
+commit;
+raise notice 'erro';
 End Case;
 End Loop;
 End$$;
-
-
 
 ------------------- Função que retorna uma tabela  com  o histórico de transação através do renavam do veículo ------------------- 
 			
