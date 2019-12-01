@@ -584,3 +584,43 @@ EXECUTE PROCEDURE juros__();
 
 
 
+------------------------------------------------------- SUPENCÃO DA CNH COM INFRAÇÕES (A OFICIAL)  -----------------------------
+
+								/*EM ANDAMENTO*/
+
+
+
+			/*(ESTÁ ERRADA POIS É DE 12 MESES*/
+
+CREATE OR REPLACE FUNCTION suspensa()
+RETURNS TRIGGER AS $$
+declare
+
+	rec_suspender   RECORD;
+	
+begin
+	for rec_suspender  in select * from condutor_pontosCnh
+	loop
+
+		if rec_suspender.total_infracao >= 20 then
+			update condutor
+			set situacaocnh = 'S'
+			where idcadastro = rec_suspender.idcondutor ;
+			return new;
+		end if;
+	
+	END LOOP;
+ 
+END; $$
+LANGUAGE plpgsql;
+
+CREATE TRIGGER suspencao
+AFTER
+insert ON multa
+FOR EACH ROW
+EXECUTE PROCEDURE suspensa();
+
+
+
+
+
