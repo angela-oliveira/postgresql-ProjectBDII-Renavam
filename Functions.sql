@@ -589,9 +589,6 @@ EXECUTE PROCEDURE juros__();
 								/*EM ANDAMENTO*/
 
 
-
-			/*(ESTÁ ERRADA POIS É DE 12 MESES*/
-
 CREATE OR REPLACE FUNCTION suspensa()
 RETURNS TRIGGER AS $$
 declare
