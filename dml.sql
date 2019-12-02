@@ -768,6 +768,12 @@ insert into infracao (descricao,valor,pontos) values ('Dirigir com CNH de catego
 insert into infracao (descricao,valor,pontos) values ('Dirigir com CNH vencida + 30 dias', 293.47,7);
 insert into infracao (descricao,valor,pontos) values ('Dirigir sem usar lentes corretoras de visão', 293.47,7);
 
+insert into infracao (descricao,valor,pontos) values ('dirigir sob a influência de álcool, conforme o artigo 165 do CTB', 880.41, 20);
+insert into infracao (descricao,valor,pontos) values ('recusar-se a fazer o teste do bafômetro', 1467.35, 20);
+insert into infracao (descricao,valor,pontos) values ('disputar corridas',880.41, 20);
+insert into infracao (descricao,valor,pontos) values ('fazer manobras perigosas (derrapar, deslizar pneu)', 293.47,20);
+insert into infracao (descricao,valor,pontos) values ('deixar de prestar socorro a uma vítima de acidente no qual está envolvido', 293.47,20);
+insert into infracao (descricao,valor,pontos) values ('deixar de prestar informações para o registro de boletim de ocorrência em caso de acidente', 293.47,20);
 
 
 
