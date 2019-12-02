@@ -131,7 +131,7 @@ dataPagamento date NULL,
 valor numeric NOT NULL,
 juros numeric NOT NULL,
 valorFinal numeric NOT NULL,
-pago char(1) NOT NULL DEFAULT 'S',
+pago char(1) NOT NULL DEFAULT 'N',
 
 CONSTRAINT PK_multa PRIMARY KEY (idMulta),
 CONSTRAINT FK_multa_renavam FOREIGN KEY (renavam) REFERENCES veiculo(renavam),
