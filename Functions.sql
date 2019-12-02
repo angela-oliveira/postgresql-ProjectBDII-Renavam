@@ -106,7 +106,7 @@ End$$;
 
 ---------------------------FUNCTION OFICIAL DA TABELA LICENCIAMENTO--------------------------------------------
 
-/*ATUALIZAÇÃO DA DATA DE VENCIMENTO*/
+/*ATUALIZAÇÃO DA DATA DE VENCIMENTO O USO DO CASE COM SÁBADO E DOMINGO NÃO ESTÁ FUNCIONANDO*/
 
 CREATE OR REPLACE function DATA_VENCIMENTO()
 returns void
@@ -114,33 +114,56 @@ LANGUAGE plpgsql
 AS $$
 
 Declare
-
+REGISTRO RECORD;
+data_venci integer;
 final_placa Integer;
 placas CURSOR for select * from veiculo v join licenciamento l on v.renavam = l.renavam;
-		
+	
 Begin 
+data_venci =0;
 For placaa in placas LOOP
-
 select RIGHT(placaa.placa, 1) into final_placa;
 
-      case 
-            when final_placa = 1 then UPDATE licenciamento SET datavenc = placaa.datavenc + Interval '365 days' WHERE datavenc= placaa.datavenc;
-	    when final_placa = 2 then UPDATE licenciamento SET datavenc = placaa.datavenc + Interval '365 days' WHERE datavenc= placaa.datavenc;
-	    when final_placa = 3 then UPDATE licenciamento SET datavenc = placaa.datavenc + Interval '368 days' WHERE datavenc= placaa.datavenc;
-	    when final_placa = 4 then UPDATE licenciamento SET datavenc = placaa.datavenc + Interval '368 days' WHERE datavenc= placaa.datavenc;
-	    when final_placa = 5 then UPDATE licenciamento SET datavenc = placaa.datavenc + Interval '365 days' WHERE datavenc= placaa.datavenc;
-	    when final_placa = 6 then UPDATE licenciamento SET datavenc = placaa.datavenc + Interval '368 days' WHERE datavenc= placaa.datavenc;
-	    when final_placa = 7 then UPDATE licenciamento SET datavenc = placaa.datavenc + Interval '368 days' WHERE datavenc= placaa.datavenc;
-	    when final_placa = 8 then UPDATE licenciamento SET datavenc = placaa.datavenc + Interval '365 days' WHERE datavenc= placaa.datavenc;
-	    when final_placa = 9 then UPDATE licenciamento SET datavenc = placaa.datavenc + Interval '368 days' WHERE datavenc= placaa.datavenc;
-	    when final_placa = 0 then UPDATE licenciamento SET datavenc = placaa.datavenc + Interval '368 days' WHERE datavenc= placaa.datavenc;
-	    else raise notice 'NÂO FINALIZADO';
+FOR REGISTRO IN select  L.datavenc  from veiculo v join licenciamento l on v.renavam = l.renavam LOOP 
 
-commit;
-raise notice 'erro';
+
+	CASE 
+		WHEN 0 THEN
+			data_venci = REGISTRO.datavenc +1; 
+			RAISE NOTICE 'Domingo';
+			update licenciamento
+			set datavenc = data_venci
+			where datavenc = datavenc;    
+		WHEN 0 THEN
+			data_venci =REGISTRO.datavenc +2; 
+			RAISE NOTICE 'Sábado';
+			update multa
+			set datavenc= data_venci
+			where datavenc = datavenc;
+			else raise notice 'NÂO FINALIZADO teste';
+
+ CASE 
+    
+	 when final_placa = 1 then UPDATE licenciamento SET datavenc = placaa.datavenc + Interval '365 days'  WHERE datavenc= placaa.datavenc;
+	 when final_placa = 2 then UPDATE licenciamento SET datavenc = placaa.datavenc + Interval '365 days'  WHERE datavenc= placaa.datavenc;
+         when final_placa = 3 then UPDATE licenciamento SET datavenc = placaa.datavenc + Interval '365 days'  WHERE datavenc= placaa.datavenc;
+	 when final_placa = 4 then UPDATE licenciamento SET datavenc = placaa.datavenc + Interval '365 days'  WHERE datavenc= placaa.datavenc;
+         when final_placa = 5 then UPDATE licenciamento SET datavenc = placaa.datavenc + Interval '365 days'  WHERE datavenc= placaa.datavenc;
+         when final_placa = 6 then UPDATE licenciamento SET datavenc = placaa.datavenc + Interval '365 days'  WHERE datavenc= placaa.datavenc;
+	 when final_placa = 7 then UPDATE licenciamento SET datavenc = placaa.datavenc + Interval '365 days'  WHERE datavenc= placaa.datavenc;
+	 when final_placa = 8 then UPDATE licenciamento SET datavenc = placaa.datavenc + Interval '365 days'  WHERE datavenc= placaa.datavenc;
+	 when final_placa = 9 then UPDATE licenciamento SET datavenc = placaa.datavenc + Interval '365 days'  WHERE datavenc= placaa.datavenc;
+         when final_placa = 0 then UPDATE licenciamento SET datavenc = placaa.datavenc + Interval '365 days'  WHERE datavenc= placaa.datavenc;
+   	 else raise notice 'NÂO FINALIZADO';
+
+COMMIT;
+RAISE NOTICE 'ERRO DE DADOS';
 End Case;
-End Loop;
+End Case;
+end loop;
+end loop;
 End$$;
+
 
 ------------------- Função que retorna uma tabela  com  o histórico de transação através do renavam do veículo ------------------- 
 			
