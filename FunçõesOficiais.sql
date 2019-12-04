@@ -255,7 +255,7 @@ begin
       FETCH CURSOR_PONTOS INTO rec_suspender ;
     -- exit when no more row to fetch
       EXIT WHEN NOT FOUND;
-	  if rec_suspender.total_infracao < 20 and rec_suspender.ano < date_part('year',date '20/09/2018') then
+	  if rec_suspender.total_infracao < 20 and rec_suspender.ano < date_part('year',current_date) then
     	
 	 	alter view condutor_pontosCnh
 		alter total_infracao set default 0;
