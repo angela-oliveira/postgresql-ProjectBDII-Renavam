@@ -793,6 +793,16 @@ insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,data
 insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,datapagamento,valor,juros,valorFinal,pago) values  ('68934054354',5,7,'03/12/2018',vencimento_multa('03/12/2018'),293.47,0,0,'N');
 
 
+-----------------------outro teste--------------------------------
+insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,datapagamento,valor,juros,valorFinal,pago) values  ('00019658893',1,2,'02/05/2019',vencimento_multa('02/05/2019'),'03/06/2019',293.47,0,0,'N');
+insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,datapagamento,valor,juros,valorFinal,pago) values  ('79944783591',2,3,'22/07/2019',vencimento_multa('22/07/2019'),'23/08/2019',880.41,0,0,'N');
+insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,datapagamento,valor,juros,valorFinal,pago) values  ('427770328610',3,4,'21/05/2019',vencimento_multa('21/05/2019'),'22/06/2019',880.41,0,0,'N');
+insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,datapagamento,valor,juros,valorFinal,pago) values  ('24575053981',4,3,'11/09/2019',vencimento_multa('11/09/2019'),'12/10/2019',293.47,0,0,'N');
+insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,datapagamento,valor,juros,valorFinal,pago) values  ('632811125410',5,6,'23/07/2019',vencimento_multa('23/07/2019'),'24/08/2019',1467.35,0,0,'N');
+insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,datapagamento,valor,juros,valorFinal,pago) values  ('79172347569',6,7,'13/09/2019',vencimento_multa('13/09/2019'),'14/10/2019',293.47,0,0,'N');
+insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,datapagamento,valor,juros,valorFinal,pago) values  ('96643985934',7,7,'12/06/2018',vencimento_multa('12/06/2018'),'12/07/2019',293.47,0,0,'N');
+insert into multa(renavam,idInfracao,idCondutor,dataInfracao,dataVencimento,datapagamento,valor,juros,valorFinal,pago) values  ('51626305432',8,7,'03/12/2018',vencimento_multa('03/12/2018'),'03/01/2020',293.47,0,0,'N');
+
 
 
 
