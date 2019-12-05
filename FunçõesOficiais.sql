@@ -238,7 +238,7 @@ EXECUTE PROCEDURE juros__();
 
 
 
-------------------------------------------------------- SUPENCÃO DA CNH COM INFRAÇÕES (A OFICIAL)  -----------------------------
+-------------------------------- SUPENCÃO DA CNH COM INFRAÇÕES (A OFICIAL)  -----------------------------
 
 CREATE OR REPLACE FUNCTION suspensa()
 RETURNS TRIGGER AS $$
@@ -287,3 +287,60 @@ AFTER
 insert ON multa
 FOR EACH ROW
 EXECUTE PROCEDURE suspensa();
+
+
+
+----------------------OU-----------SUPENCÃO DA CNH COM INFRAÇÕES COM DELETE-------------------------------------
+
+
+
+CREATE OR REPLACE FUNCTION suspensa()
+RETURNS TRIGGER AS $$
+declare
+
+	rec_suspender   RECORD;
+	ano date;
+	CURSOR_PONTOS CURSOR for select * from condutor_pontosCnh;
+begin
+	OPEN CURSOR_PONTOS;
+
+   LOOP
+    -- fetch row into the film
+      FETCH CURSOR_PONTOS INTO rec_suspender ;
+    -- exit when no more row to fetch
+      EXIT WHEN NOT FOUND;
+	  if rec_suspender.total_infracao < 20 and rec_suspender.ano < date_part('year',current_date) then
+    	delete from multa
+		where idcondutor = rec_suspender.idcondutor;
+		update  condutor 
+		set situacaocnh = 'R'
+		where idcadastro = rec_suspender.idcondutor;
+		 
+	  elsif rec_suspender.total_infracao >= 20 then
+	  	ano := (select max(datainfracao) from multa where idcondutor =rec_suspender.idcondutor);
+		update condutor
+		set situacaocnh = 'S'
+		where idcadastro = rec_suspender.idcondutor;
+	  end if;
+		if current_date = ano + 366 then
+			update condutor
+			set situacaocnh = 'R'
+			where idcadastro = rec_suspender.idcondutor;
+        end if;
+	
+	
+	END LOOP;
+	
+    CLOSE CURSOR_PONTOS;
+    return rec_suspender.condutor;
+ 
+END; $$
+LANGUAGE plpgsql;
+
+CREATE TRIGGER suspencao
+AFTER
+insert ON multa
+FOR EACH ROW
+EXECUTE PROCEDURE suspensa();
+
+
