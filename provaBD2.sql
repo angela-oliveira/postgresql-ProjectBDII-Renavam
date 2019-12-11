@@ -50,3 +50,13 @@ select * from exemplar
 
 2019-12-11
 
+---------------------3
+
+
+CREATE VIEW dados_usuarios AS
+    ( SELECT  us.nome, us.codusuario,count(us.codusuario),count(mul.numemprestimo) quantidade_multa
+	 from usuario us join emprestimo em on us.codusuario = em.codusuario
+	 join multa mul on em.numemprestimo = mul.numemprestimo
+	 group by us.nome,us.codusuario
+);
+
