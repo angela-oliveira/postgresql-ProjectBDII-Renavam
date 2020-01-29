@@ -1,0 +1,449 @@
+#################3/*Lista 02 – SQL Avançado - SCP*/#######################
+
+/*23*/
+SELECT idfuncionario, nome
+FROM funcionario
+WHERE sexo = 'M' and nome not like '(AM)%' ;
+
+
+/*24*/
+SELECT * FROM pedido
+where via = 'A' and frete >= '300'
+ORDER BY idpedido;
+
+/*25*/
+SELECT count(idcliente) FROM cliente;
+
+/*26*/
+SELECT count(idcliente) 
+FROM cliente
+WHERE idcidade = '14';
+
+/*27*/
+SELECT count(idcidade)
+FROM cidade 
+where idpais <> 'BRA';
+
+/*28*/
+SELECT count(idfuncionario)
+from funcionario
+where email is not null
+
+/*29*/
+select count(*) FROM cidade
+
+/*30*/ 
+select sum(salario) FROM funcionario
+
+/*31*/
+select sum(quantest * venda) from produto
+
+/*32*/
+select sum(frete)
+FROM pedido
+where via = 'M'
+
+
+/*33*/
+select sum(salario)
+from funcionario
+where sexo = 'M' and idfuncao <> 10 and idfuncao <> 11
+
+/*41*/
+
+select date_part('month', min(datapedid)) ||'/'|| date_part('year', min(datapedid)) "Mês/Data"
+from pedido
+where via = 'A';
+select * from pedido;
+
+/*42*/
+select pe.idpedido, count(pr.idproduto) quant
+from pedido pe, produto pr
+GROUP BY pe.idpedido
+
+
+
+/*43*/
+SELECT idsetor, sum(salario) as total
+FROM funcionario 
+GROUP BY idsetor 
+HAVING sum(salario) > 5.000
+
+/*44*/
+SELECT idtipo, avg(custo) PMC, avg(venda) PMV, avg(custo) - avg(venda) Diferença
+FROM produto
+GROUP BY idtipo
+
+/*45*/
+SELECT idproduto, count(idpedido)
+FROM itens
+GROUP BY idproduto
+HAVING count(idpedido) > 20
+
+SELECT * from itens
+
+/*46*/
+SELECT idsetor,sexo, AVG(date_part('year',age(dataNasc))) Media
+FROM funcionario
+GROUP BY idsetor, sexo
+having AVG(date_part('year',age(dataNasc))) <40
+
+/*47*/
+SELECT idnasceu, count(sexo) Quantidade
+from funcionario
+GROUP BY idnasceu
+HAVING count(sexo) >= 3;
+
+/*48*/
+SELECT idpais, count(idcidade) Quantidade
+from cidade
+group by idpais 
+having count(idcidade) > 5;
+
+
+/*49*/
+SELECT idcliente ,count(idpedido)
+FROM pedido
+group by idcliente;
+
+/*50*/
+select idtipo, avg(custo) PMV, avg(venda) PMV, avg(custo) - avg(venda) / 100
+FROM produto
+group by idtipo;
+
+#######################################/*Lista 05 esquema dvdrental*/########################################
+
+/*01*/
+
+SELECT f.film_id, f.title
+FROM film f left join inventory i
+on i.film_id = f.film_id
+WHERE i.film_id is null
+ORDER BY f.title;
+
+
+/*02*/
+
+SELECT cu.customer_id, cu.first_name, sum(pa.amount) quant
+FROM customer cu left join payment pa on
+pa.customer_id = cu.customer_id
+GROUP BY cu.customer_id
+ORDER BY quant desc;
+
+
+/*03*/
+
+SELECT cu.customer_id, cu.first_name, sum(pa.amount) quant
+FROM customer cu left join payment pa on
+pa.customer_id = cu.customer_id
+GROUP BY cu.customer_id
+HAVING sum(pa.amount) > 200
+ORDER BY quant desc;
+
+
+
+-- 4°
+
+
+select customer_id, count(  payment_id) "N° de transações" from payment
+group by customer_id
+
+/*5*/
+SELECT  so.store_id, count(cu.customer_id) "Quantidade de cliente"
+FROM store so inner join customer cu on 
+so.store_id = cu.store_id
+group by so.store_id;
+
+ OU
+
+ 
+select store_id,count(customer_id) "Quantidade de clientes" from customer
+group by store_id
+
+
+/*6*/
+SELECT  so.store_id, count(cu.customer_id) "Quantidade de cliente"
+FROM store so inner join customer cu on 
+so.store_id = cu.store_id
+group by so.store_id
+HAVING count(cu.customer_id) > 300;
+
+OU
+
+
+select store_id,count(customer_id) "Quantidade de clientes" from customer
+group by store_id
+having count(customer_id) > 300
+
+
+-- 7° 
+
+select film_id, title, rental_rate 
+from film
+group by rental_rate,film_id
+having rental_rate > avg(rental_rate) 
+
+
+/*08*/
+select film_id from film
+where EXISTS (select return_date from rental where return_date between '2005-05-29' and '2005-05-30')
+
+
+/*10*/
+
+
+select cus.customer_id, first_name || '  ' || last_name
+from customer cus
+where exists (select p.customer_id from payment p where
+ cus.customer_id = p.customer_id)
+
+-- 11
+ 
+select category_id,count(film_id) quant
+from film_category
+group by category_id
+order by quant desc
+limit 5
+
+-- 12
+
+select f.film_id, f.title, i.inventory_id
+from film f inner join inventory i on f.film_id = i.film_id
+
+-- 13
+
+select * from customer
+where email  is null
+
+-- 14°
+
+select * from customer where email is null
+
+-- 15°
+
+select lan.name, count(fi.film_id) from film fi inner join language lan on 
+fi.language_id = lan.language_id
+group by lan.name
+
+-- 16°
+
+select  a.first_name,tb.quant
+from 
+(select actor_id ator,count(distinct film_actor ) quant
+from film_actor group by actor_id) tb
+inner join  actor a on tb.ator = a.actor_id 
+order by tb.quant
+limit 5
+
+-- 21
+
+select cast(avg(rental_duration) as decimal(10,2)) Média from film
+group by rating
+order by Média desc
+
+
+
+##########-- Lista de exercicio: Dominando funções agregadas e uso da clásula group by- having ####################
+
+--1°
+select al.nome, count(m.idmusica) "Quantidade de musica"
+from album al, musica m
+where al.codalbum = m.codalbum
+group by al.nome
+having count(m.idmusica) > 10
+
+-- 2°
+select al.nome, count(m.idmusica) Quanti
+from album al, musica m
+where al.codalbum = m.codalbum
+group by al.nome
+order by Quanti desc
+limit 1
+
+OU
+
+OU
+
+select al.nome, max(tb.quant)
+from  (select codalbum,count(distinct(idmusica)) quant from musica group by codalbum) tb inner join album al
+on al.codalbum = tb.codalbum
+group by al.nome
+
+
+-- 3°
+select a.nome, count(al.codalbum)
+from artista a, album al
+where al.codartista = a.codartista
+group by a.nome,al.codgenero 
+having al.codgenero in(1,2)
+
+-- 4°
+
+SELECT u.nome, count(r.idmens)
+FROM si_usuario u, si_receptor r
+WHERE u.login = r.destinatario
+GROUP BY u.nome,u.login
+ORDER BY u.login
+
+OU
+
+select login,cast(count('destinario') as integer)
+from si_usuario  join si_receptor 
+on si_usuario.login = si_receptor.destinatario
+group by login 
+order by login 
+
+
+-- 5°
+
+-- 6°
+SELECT u.nome, count(r.idmens)
+FROM si_usuario u, si_receptor r
+WHERE u.login = r.destinatario
+GROUP BY u.nome,u.login,r.lida
+having r.lida <> 1
+
+
+/*7*/
+select rec.destinatario,axe.nome,count(*)
+from si_receptor rec join si_anexo axe
+on rec.idmens = axe.idmens
+join si_mensagem men
+on men.idmens = axe.idmens 
+group by rec.destinatario,axe.nome
+having rec.destinatario Ilike '%Alex'
+
+OU
+
+select a.idmens,re.destinatario,cast(count('a.nome') as integer) 
+from si_anexo a, si_receptor re
+where a.idmens = re.idmens
+group by a.idmens,re.destinatario
+having re.destinatario like '%alex'
+
+
+/*8*/
+
+select men.texto,axe.tamanho,count(*)
+from si_mensagem men join si_anexo axe
+on men.idmens = axe.idmens 
+group by men.texto,axe.tamanho 
+having axe.tamanho > 5120
+
+
+
+
+###################### lista 4 subconsulta ##################
+
+--1°
+
+select idproduto,nome,venda
+from produto
+where venda = (select max(venda) from produto)
+
+
+-- 2°
+select ped.idpedido,ped.datapedid,
+cl.nome,cl.idcidade,cl.fone
+from pedido ped  join cliente cl 
+on ped.idcliente = cl.idcliente
+where cl.idcidade  in ('3','4')
+order by cl.nome
+
+OU
+
+SELECT ped.idpedido,ped.datapedid,
+cl.nome,cl.idcidade,cl.fone
+from (select * from cliente where idcidade  in ('3','4')) cl
+inner join pedido ped on ped.idcliente = cl.idcliente
+order by cl.nome
+
+
+-- 3°
+
+select ped.idpedido,
+cl.nome,cid.nome,cid.idpais
+from pedido ped join cliente cl 
+on ped.idcliente = cl.idcliente
+join cidade cid
+on cid.idcidade = cl.idcidade
+where cid.idpais not in ('ALE','ING')
+order by cid.nome
+
+OU
+
+select  cli.idpedido,cli.nome, cid.nome,
+cid.idpais
+from ( select * from pedido ped join cliente cl 
+on ped.idcliente = cl.idcliente) as cli
+inner join cidade cid
+on cid.idcidade = cli.idcidade
+where cid.idpais not in ('ALE','ING')
+
+
+
+-- 4°
+REPOSTA INCOMPLETA
+
+SELECT funci.media Média,funci.quant "Quantidade de mulheres",se.nome "Nome do setor"
+from (select idsetor,avg(salario) Media,count(sexo) quant
+from funcionario group by idsetor,sexo having sexo = 'F') as funci
+inner join setor se on funci.idsetor = se.idsetor 
+
+OU
+
+select se.nome,avg(f.salario) Media, count(f.sexo) quant
+from funcionario f inner join setor se on f.idsetor = se.idsetor 
+where exists(select max(f2.quant) from f f2, fruncionario fu where f.idfuncionario = fu.idfuncionario)
+group by se.nome, sexo 
+having sexo = 'F' 
+
+OU
+
+select avg(funci.salario),max(funci.quant),se.nome
+from(select idsetor,count(idfuncionario) quant 
+from funcionario where sexo = 'F'group by idsetor) as funci 
+inner join setor se 
+on funci.idsetor = se.idsetor
+group by se.nome
+
+OU
+
+select avg(funci.salario), se.nome
+from(select *
+from funcionario where sexo = 'F' ) as funci 
+inner join setor se on funci.idsetor = se.idsetor
+group by se.nome
+
+
+
+-- 5°
+select idfuncionario, nome, fone, datanasc, 
+date_part('year',age(datanasc)) from funcionario
+where date_part('year',age(datanasc)) = (select max(date_part('year',age(datanasc))) Idade from funcionario where sexo = 'M')
+
+
+-- 6°
+SELECT distinct se.nome,func.idsetor, func.Soma
+FROM (select distinct idsetor,idfuncao, sum(salario) Soma from funcionario 
+group by idfuncao,idsetor having idfuncao in (10,11,18)) func
+inner join setor se on func.idsetor = se.idsetor
+order by se.nome
+
+7° 
+select pe.via, count(idpedido),pe.idpedido,pe.datapedid,pe.datafatura, pe.nome "Nome do funcionario"
+from (select *from pedido p, funcionario fu where p.idvendedor = fu.idfuncionario) pe
+inner join cliente c on pe.idcliente = c.idcliente
+group by pe.via,pe.idpedido,pe.datapedid,pe.datafatura, pe.nome,c.tipo,c.idcidade
+having  c.tipo in ('J')  and  c.idcidade not in (1,73)
+
+
+select pe.idpedido,pe.datapedid,pe.datafatura, pe.nome
+from (select *from pedido p, cliente c where p.idcliente = c.idcliente where c.tipo = 
+inner join cliente c on pe.idcliente = c.idcliente
+where c.tipo = 'J'
+
+select via, count(idpedido) from pedido group by via
+
+
+
